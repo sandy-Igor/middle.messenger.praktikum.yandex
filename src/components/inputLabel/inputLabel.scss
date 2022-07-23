@@ -1,0 +1,27 @@
+.inputLabel-wrapper {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: .0625rem solid #77b8f9;
+
+  input {
+
+    width: 50%;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    height: 2rem;
+    outline: none;
+    direction:rtl
+  }
+
+  label {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}
