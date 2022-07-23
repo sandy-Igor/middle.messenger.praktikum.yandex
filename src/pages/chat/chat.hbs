@@ -1,0 +1,58 @@
+<div class="chat-page-box">
+    <ul class="chat-list-box">
+{{> inputSearch
+        spanValue = spanValue
+        inputPlaceholder = inputSearchPlaceholder
+
+}}
+            {{#each chats}}
+            <li>
+        {{>chatRoomItem
+                avatarImage = avatarImage
+                chatName = chatName
+                userMsg = userMsg
+                lastMsg = lastMsg
+                dateMsg = dateMsg
+                newMsg = newMsg
+                selected = selected
+        }}
+            </li>
+            {{/each}}
+    </ul>
+    <div class="chat-area-box">
+        <ul class="chat-area-footer">
+           <li>
+            {{>chatRoomItem
+                    avatarImage = avatarImage
+                    chatName = chatName
+
+            }}
+           </li>
+        </ul>
+        <div class="chat-area-main">
+            <div class="message-date"> <span>Obi-Wan Episode VI</span></div>
+                {{#each msg}}
+                    {{> message
+                            messageContent = messageContent
+                            messageOwner = messageOwner
+                            messageTime = messageTime
+                            imgSource = image.imgSource
+                    }}
+                {{/each}}
+
+        </div>
+        <div class="chat-msg-bottom">
+            <img src="{{clip}}" alt="">
+                {{>input
+                        inputType = inputType
+                        inputPlaceholder = inputMsgPlaceholder
+                        label = label
+                        custom = inputChat
+                }}
+            {{> arrowButton
+                    directionRight = directionRight
+            }}
+
+        </div>
+    </div>
+</div>

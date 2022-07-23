@@ -1,0 +1,35 @@
+@mixin fonts($size) {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: ($size);
+}
+.error-container {
+  position: relative;
+  width: 28rem;
+  margin: 20vh auto;
+  background: #F7F7F8;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+
+
+  .error-code {
+    margin: 20px auto;
+   @include fonts(28px);
+  }
+
+  .error-description {
+    margin: 10px auto 30px auto;
+    @include fonts(20px);
+  }
+  .button-return{
+    margin: 10px auto 30px auto;
+    @include fonts(15px);
+  }
+}
+
