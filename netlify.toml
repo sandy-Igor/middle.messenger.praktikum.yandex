@@ -8,3 +8,43 @@
 [build]
   command = "npm run build"
 
+[[redirects]]
+  from = "/"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/register"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/pnf"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/pse"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/changeProfilePage"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/profilePage"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/changePassPage"
+  to = "/index"
+  status = 200
+
+[[redirects]]
+  from = "/chatPage"
+  to = "/index"
+  status = 200
+
