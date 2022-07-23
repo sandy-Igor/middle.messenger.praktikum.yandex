@@ -8,6 +8,7 @@
 [build]
   command = "npm run build"
   publish = "src"
+  command = "npm run start"
 [[redirects]]
   from = "/*"
   to = "/index.html"
