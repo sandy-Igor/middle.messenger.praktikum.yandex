@@ -6,9 +6,7 @@
 # “publish” is the directory to publish (relative to the root of your repo).
 
 [build]
-  command = "npm run build"
-[build]
-  command = "node server.js"
+  command = "npm run build node server.js"
 
 [[redirects]]
   from = "/"
