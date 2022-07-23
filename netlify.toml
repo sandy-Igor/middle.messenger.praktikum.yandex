@@ -5,47 +5,7 @@
 # “command” is your build command.
 # “publish” is the directory to publish (relative to the root of your repo).
 
-[build]
-  command = "npm run start"
-
-
 [[redirects]]
-  from = "/"
-  to = "/index"
+  from = "/*"
+  to = "/index.html"
   status = 200
-
-[[redirects]]
-  from = "/register"
-  to = "/index"
-  status = 200
-
-[[redirects]]
-  from = "/pnf"
-  to = "/index"
-  status = 200
-
-[[redirects]]
-  from = "/pse"
-  to = "/index"
-  status = 200
-
-[[redirects]]
-  from = "/changeProfilePage"
-  to = "/index"
-  status = 200
-
-[[redirects]]
-  from = "/profilePage"
-  to = "/index"
-  status = 200
-
-[[redirects]]
-  from = "/changePassPage"
-  to = "/index"
-  status = 200
-
-[[redirects]]
-  from = "/chatPage"
-  to = "/index"
-  status = 200
-
