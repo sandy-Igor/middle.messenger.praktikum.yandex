@@ -3,35 +3,30 @@
   "version": "1.0.0",
   "description": "chat",
   "dependencies": {
-    "buffer": "^6.0.3",
-    "crypto-browserify": "^3.12.0",
-    "events": "^3.3.0",
     "express": "^4.18.1",
     "handlebars": "^4.7.7",
-    "hbs": "^4.2.0",
-    "nodemon": "^2.0.19",
-    "parcel": "^2.6.2",
-    "parcel-bundler": "^1.12.5",
-    "parcel-plugin-handlebars": "^0.4.4",
-    "path-browserify": "^1.0.1",
-    "querystring-es3": "^0.2.1",
-    "stream-http": "^3.2.0",
-    "url": "^0.11.0"
+    "parcel": "^2.6.2"
   },
   "engines": {
     "node": ">=12.0.0"
+  },
+  "targets": {
+    "default": {
+      "engines": {
+        "browsers": ">= 50%"
+      }
+    }
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.2",
     "concurrently": "^7.2.2",
     "css-loader": "^6.7.1",
-    "parcel-plugin-hbs": "^1.1.2",
     "parcel-transformer-hbs": "^1.0.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build src/index.html",
-    "dev": "parcel src/index.html",
+    "build": "parcel build --target default src/index.html",
+    "dev": "parcel --target default src/index.html",
     "start": "node server.js"
   },
   "repository": {
@@ -44,6 +39,5 @@
     "url": "https://github.com/sandy-Igor/practicum/issues"
   },
   "homepage": "https://github.com/sandy-Igor/practicum#readme",
-  "keywords": [],
-  "main": "server.js"
+  "keywords": []
 }
