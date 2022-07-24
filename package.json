@@ -1,0 +1,43 @@
+{
+  "name": "practicum",
+  "version": "1.0.0",
+  "description": "chat",
+  "dependencies": {
+    "express": "^4.18.1",
+    "handlebars": "^4.7.7",
+    "parcel": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "targets": {
+    "default": {
+      "engines": {
+        "browsers": ">= 50%"
+      }
+    }
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.2",
+    "concurrently": "^7.2.2",
+    "css-loader": "^6.7.1",
+    "parcel-transformer-hbs": "^1.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build --target default src/index.html",
+    "dev": "parcel --target default src/index.html",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandy-Igor/practicum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandy-Igor/practicum/issues"
+  },
+  "homepage": "https://github.com/sandy-Igor/practicum#readme",
+  "keywords": []
+}

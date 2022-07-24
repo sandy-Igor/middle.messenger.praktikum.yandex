@@ -1,0 +1,41 @@
+<div class="profilePage-box">
+    <div class="box-return">
+            {{> arrowButton
+            }}
+    </div>
+    <div class="box-profile">
+        <div class="box-profile-footer">
+            <label class="box-avatar-changer">
+                <input type="file"/>
+                <img src="{{avatarIcon}}" alt="#">
+                <span class="avatarChanger">Change avatar</span>
+            </label>
+        </div>
+        <div class="profile-form-wrapper">
+            <form action="submit">
+               {{#each input}}
+                {{> labelInput
+                        inputType = inputType
+                        inputId = inputId
+                }}
+               {{/each}}
+            </form>
+        </div>
+        <div class="box-profile-bottom">
+            {{#if button}}
+            {{>button
+                    buttonType = buttonType
+                    btnValue = btnValue
+            }}
+            {{else}}
+                {{#each span}}
+                        {{>span
+                                spanClass = spanClass
+                                spanVal = spanVal
+                        }}
+                {{/each}}
+            {{/if}}
+
+        </div>
+    </div>
+</div>

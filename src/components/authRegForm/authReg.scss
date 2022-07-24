@@ -1,0 +1,40 @@
+
+.box {
+  position: relative;
+  width: 28rem;
+  margin: 5vh auto;
+  background: #F7F7F8;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+}
+
+.content-box {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.footer-title {
+  display: flex;
+  justify-content: center;
+  margin: 33px 0;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+.form-wrapper{
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.form-block-input {
+  height: 50vh;
+}
