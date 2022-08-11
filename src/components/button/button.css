@@ -1,4 +1,4 @@
-.buttonReady {
+.button-ready {
   margin: 10px 0;
   border-radius: 8px;
   width: 100%;
@@ -9,12 +9,12 @@
   border: none;
   color: #ffffff;
 }
-.buttonReady:hover {
+.button-ready:hover {
   opacity: 80%;
   transition: 0.3s;
 }
 
-.buttonScd {
+.button-scd {
   margin: 10px 0;
   border-radius: 8px;
   width: 100%;
@@ -25,12 +25,12 @@
   border: #ffffff;
   color: #363B4B;
 }
-.buttonScd:hover {
+.button-scd:hover {
   opacity: 80%;
   transition: 0.3s;
 }
 
-.buttonSave {
+.button-save {
   margin: 10px 0;
   border-radius: 8px;
   width: 100%;
@@ -43,7 +43,7 @@
   border: none;
   color: #ffffff;
 }
-.buttonSave:hover {
+.button-save:hover {
   opacity: 80%;
   transition: 0.3s;
 }

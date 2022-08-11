@@ -1,8 +1,13 @@
-<div class="inputLabel-wrapper">
+<!--<div class="inputLabel-wrapper">-->
+{{#if label}}
     <label>{{label}}</label>
+{{/if}}
     <input
             id = "id{{inputId}}"
             type="{{inputType}}"
-            placeholder={{inputId}}
+            name="{{inputName}}"
+            placeholder="{{inputId}}"
+            {{disabled}}
     />
-</div>
+<!--</div>-->
+

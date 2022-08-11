@@ -12,7 +12,7 @@
   transition: 0.3s;
 }
 
-.buttonReady {
+.button-ready {
   @include buttonCommonPreset;
   background: #1A6CF1;
   border: none;
@@ -22,7 +22,7 @@
   }
 }
 
-.buttonScd {
+.button-scd {
 @include buttonCommonPreset;
   background: transparent;
   border: #ffffff;
@@ -32,7 +32,7 @@
   }
 }
 
-.buttonSave {
+.button-save {
   @include buttonCommonPreset;
   width: 50%;
   border-radius: 8px;

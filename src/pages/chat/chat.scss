@@ -20,9 +20,6 @@
   flex-direction: column;
   overflow: auto;
 
-  li:nth-child(n+5):last-child .chat-room-border {
-    border-bottom: none;
-  }
 }
 
 .chat-area-box {
@@ -64,10 +61,15 @@
     width: 95%;
     border-top: 1px solid #999;;
 
-    .chat-input__msg{
+    form{
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
       width: 100%;
+    }
+
+    .chat-input__msg{
       border-radius: 50px;
-      border: none;
     }
 
     img {

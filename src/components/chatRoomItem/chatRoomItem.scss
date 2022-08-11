@@ -4,7 +4,8 @@
   justify-content: space-between;
   padding: 7px 0;
   width: 100%;
-  max-height: 70px;
+  height: 70px;
+  cursor: pointer;
 
   .room-box-content {
     display: flex;
@@ -36,7 +37,7 @@
    }
   }
   .room-adds-box {
-    margin-right: 5%;
+    margin: 0 5%;
     display: flex;
     flex-direction: column;
 
@@ -47,6 +48,7 @@
     }
 
     .newMsg {
+        margin-bottom: 5px;
         font-size: 10px;
         background: #1A6CF1;
         color: #ffffff;
@@ -61,7 +63,7 @@
     .footer-chat-options {
       position: relative;
       width: 30px;
-      height: 50px;
+      height: 70px;
       color: #1E1E1E;
       border-radius: 50%;
 
@@ -78,14 +80,16 @@
   }
 
 }
-.chat-room-border {
+
+.chat-list-element {
   content: ' ';
   border-bottom: 1px solid #999;
   width: 90%;
   margin: auto;
-
+  &:nth-child(n+10):last-child{
+    border-bottom: none;
   }
-
+}
 
 .selected {
   background: #E4EDFD;

@@ -1,13 +1,18 @@
-import errorServer from '../../components/errors/errors.hbs'
-import '../../components/errors/errors.scss'
+import '../../components/errors/errors.scss';
+import Errors from '../../components/errors/errors';
 
-const data = {
-    error: "500",
-    description: "already in fixing..."
-}
-
-const pageServerError = () => {
-    return errorServer(data)
-}
+const pageServerError = new Errors(
+  'div',
+  {
+    error: '500',
+    description: 'already in fixing...',
+    events: {
+      click: (e) => {
+        e.preventDefault();
+        console.log('pse');
+      },
+    },
+  },
+);
 
 export default pageServerError;

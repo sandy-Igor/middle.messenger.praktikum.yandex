@@ -1,7 +1,6 @@
-<div class="profilePage-box">
+<!--<div class="profilePage-box">-->
     <div class="box-return">
-            {{> arrowButton
-            }}
+        {{{arrowButton}}}
     </div>
     <div class="box-profile">
         <div class="box-profile-footer">
@@ -11,31 +10,35 @@
                 <span class="avatarChanger">Change avatar</span>
             </label>
         </div>
-        <div class="profile-form-wrapper">
-            <form action="submit">
-               {{#each input}}
-                {{> labelInput
-                        inputType = inputType
-                        inputId = inputId
-                }}
-               {{/each}}
-            </form>
-        </div>
-        <div class="box-profile-bottom">
-            {{#if button}}
-            {{>button
-                    buttonType = buttonType
-                    btnValue = btnValue
-            }}
-            {{else}}
-                {{#each span}}
-                        {{>span
-                                spanClass = spanClass
-                                spanVal = spanVal
-                        }}
-                {{/each}}
-            {{/if}}
+        <form>
+            <ul class="profile-form-wrapper">
+                {{#if profile}}
+                    {{{inputMail}}}
+                    {{{inputLogin}}}
+                    {{{inputName}}}
+                    {{{inputScdName}}}
+                    {{{inputNick}}}
+                    {{{inputPhone}}}
 
-        </div>
+                {{else}}
+                    {{{inputOldPass}}}
+                    {{{inputNewPass}}}
+                    {{{inputRepPass}}}
+                {{/if}}
+            </ul>
+
+            <div class="box-profile-bottom">
+                {{#if buttons}}
+                    {{{button}}}
+                {{else}}
+                    <ul class="list-wrapper">
+                        {{{changeData}}}
+                        {{{changePassword}}}
+                        {{{exit}}}
+                    </ul>
+                {{/if}}
+
+            </div>
+        </form>
     </div>
-</div>
+<!--</div>-->

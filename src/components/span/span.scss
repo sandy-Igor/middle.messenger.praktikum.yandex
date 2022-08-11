@@ -1,4 +1,5 @@
 .span-wrapper{
+  margin: 2px 0;
   font-family: 'Roboto', sans-serif;
   font-style: italic;
   font-size: 15px;
@@ -8,6 +9,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: .0625rem solid #77b8f9;
+
+  span {
+    cursor: pointer;
+  }
 }
 
 .spanBlue {

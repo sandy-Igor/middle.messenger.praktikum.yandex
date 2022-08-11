@@ -4,21 +4,25 @@
             <span>{{footerTitle}}</span>
         </div>
         <div class="form-wrapper">
-            <form>
-                    <div class="form-block-input">
-                {{#each inputs}}
-                    {{>input
-                            inputType = inputType
-                            inputPlaceholder = inputPlaceholder
-                    }}
-                {{/each}}
-                    </div>
-                {{#each buttons}}
-                    {{>button
-                            buttonType = buttonType
-                            btnValue = btnValue
-                    }}
-                {{/each}}
+            <form id="formElem">
+                <ul class="form-block-input">
+                    {{#if auth}}
+                        {{{inputLogin}}}
+                        {{{inputPassword}}}
+                    {{/if}}
+
+                    {{#if register}}
+                        {{{inputMail}}}
+                        {{{inputLogin}}}
+                        {{{inputName}}}
+                        {{{inputScdName}}}
+                        {{{inputPhone}}}
+                        {{{inputPassword}}}
+                        {{{inputPasswordScd}}}
+                    {{/if}}
+                </ul>
+                {{{goButton}}}
+                {{{altBtn}}}
             </form>
         </div>
     </div>

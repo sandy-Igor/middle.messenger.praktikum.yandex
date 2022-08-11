@@ -2,10 +2,12 @@
   font-family: 'Roboto', sans-serif;
   font-style: italic;
   font-size: 15px;
-  width: auto;
+  width: inherit;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: .0625rem solid #77b8f9;
+
 
   input {
 
