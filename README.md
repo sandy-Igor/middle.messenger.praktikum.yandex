@@ -5,4 +5,6 @@ chat_sprint_1
 "npm run start" for node server.js
 
 
-Netlify: https://62dc7197720c1400084150ac--heroic-stroopwafel-c9915a.netlify.app/
+Netlify: https://62f73b205743950008fffc52--heroic-stroopwafel-c9915a.netlify.app
+
+
