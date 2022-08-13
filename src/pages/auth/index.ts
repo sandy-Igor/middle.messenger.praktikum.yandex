@@ -1,7 +1,7 @@
 import AuthPage from "./auth";
 import Button from "../../components/button/button";
 import Input from "../../components/input/input";
-import validation from "../../utils/validation";
+import {formSubmitEvent, inputBlur, inputFocus} from "../../utils/events";
 
 const goButton = new Button(
     'div',
@@ -35,15 +35,12 @@ const inputLogin = new Input(
         inputPlaceholder: "login",
         inputName: "inputLogin",
         events: {
-            keydown: (e: Event) => {
-                console.log(e.target)
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
             }
-        },
-        attr: {
-            class: "input-wrapper"
         }
-    }
-)
+    })
 
 const inputPassword = new Input(
     'li',
@@ -52,19 +49,12 @@ const inputPassword = new Input(
         inputPlaceholder: "password",
         inputName: "inputPassword",
         events: {
-            keydown: (e: Event) => {
-                goButton.setProps({btnValue: (e.target as HTMLTextAreaElement).value})
-            },
-            focus: (e: Event) => {
-                (e.target as HTMLInputElement).classList.add("focus")
-                console.log("focus")
-            },
-            blur: () => {
-                console.log("blur")
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
             }
-        },
-    }
-)
+        }
+    })
 
 
 const data = {
@@ -76,16 +66,9 @@ const data = {
     inputPassword: inputPassword,
     events: {
         submit: (e: Event) => {
-            e.preventDefault()
-            document.querySelectorAll("input").forEach(inp => {
-                console.log(validation(inp, data));
-            })
-        },
-        blur: () => {
-            console.log("form blur")
+            formSubmitEvent(e, data)
         }
     }
-
 }
 const auth = new AuthPage(data)
 

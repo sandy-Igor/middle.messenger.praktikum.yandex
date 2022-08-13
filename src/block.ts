@@ -44,32 +44,11 @@ export default class Block {
     private _getChildren(propsAndChildren: Object) {
         const children: any | Record<string, Block> = {};
         const props: Props = {};
-
-        //  Object.keys(propsAndChildren).forEach(key => {
-        //     if (propsAndChildren[key] instanceof Block) {
-        //         children[key] = propsAndChildren[key];
-        //     } else {
-        //         props[key] = propsAndChildren[key];
-        //     }
-        // });
         Object.entries(propsAndChildren).forEach(([key, value]) => {
             if (value instanceof Block || Array.isArray(value)) {
                 children[key] = value;
             }
-                // else if (typeof value === 'object') {
-                // else if (Array.isArray(value)) {
-                //     //      value.forEach((val,index) => {
-                //     //          if (val instanceof Block) {
-                //     //              children[key+index] = val;
-                //     //          }
-                //     //      })
-                //     value.forEach((val, index) => {
-                //         if (val instanceof Block) {
-                //             children[key + index] = val;
-                //         } else {
-                //             props[key] = val;
-                //         }
-            //     })
+
             else {
                 props[key] = value;
             }

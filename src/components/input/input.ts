@@ -6,9 +6,8 @@ export default class Input extends Block {
 
     addEvents() {
         this.element.querySelectorAll("input").forEach(inp => {
-            inp.addEventListener("keyup", this.props.events.keydown);
-            inp.addEventListener("focus", this.props.events.focus)
             inp.addEventListener("blur", this.props.events.blur)
+            inp.addEventListener("focus", this.props.events.focus)
         })
     }
 

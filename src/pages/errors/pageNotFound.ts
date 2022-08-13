@@ -7,7 +7,7 @@ const pageNotFound = new Errors(
     error: '404',
     description: 'page not found',
     events: {
-      click: (e) => {
+      click: (e: Event) => {
         e.preventDefault();
         console.log('pnf');
       },
@@ -15,8 +15,5 @@ const pageNotFound = new Errors(
   },
 );
 
-// const pageNotFound = () => {
-//     return errorNotFound(data)
-// }
 
 export default pageNotFound;

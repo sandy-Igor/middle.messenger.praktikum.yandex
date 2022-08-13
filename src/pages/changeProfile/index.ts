@@ -3,6 +3,7 @@ import ChangeProfile from './changeProfile';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
+import {formSubmitEvent, inputBlur, inputFocus} from "../../utils/events";
 
 const arrowButton = new ArrowButton(
     'div',
@@ -23,12 +24,12 @@ const inputMail = new InputLabel(
         inputType: 'text',
         inputName: "inputMail",
         inputId: 'dvader@deathstar.ru',
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -39,12 +40,12 @@ const inputLogin = new InputLabel(
         inputType: 'text',
         inputId: 'Sith',
         inputName: "inputLogin",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -55,12 +56,12 @@ const inputName = new InputLabel(
         inputType: 'text',
         inputId: 'Darth',
         inputName: "inputName",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -71,12 +72,12 @@ const inputScdName = new InputLabel(
         inputType: 'text',
         inputId: 'Vader',
         inputName: "inputScdName",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -86,12 +87,12 @@ const inputNick = new InputLabel(
         label: 'Chat name',
         inputType: 'text',
         inputId: 'lordVaderSith',
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -102,12 +103,12 @@ const inputPhone = new InputLabel(
         inputType: 'text',
         inputId: '+7-909-09-09-090',
         inputName: "inputPhone",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -117,9 +118,8 @@ const buttonSave = new Button(
         buttonType: 'button-save',
         btnValue: 'Save',
         events: {
-            click: (e: Event) => {
-                e.preventDefault();
-                console.log('savedata');
+            click: () => {
+                console.log('Submit');
             },
         },
         attr: {
@@ -140,6 +140,11 @@ const data = {
     inputPhone: inputPhone,
     buttons: true,
     button: buttonSave,
+    events: {
+        submit: (e: Event) => {
+            formSubmitEvent(e, data)
+        }
+    }
 };
 
 const changeProfilePage = new ChangeProfile(data);

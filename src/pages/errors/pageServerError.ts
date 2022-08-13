@@ -7,7 +7,7 @@ const pageServerError = new Errors(
     error: '500',
     description: 'already in fixing...',
     events: {
-      click: (e) => {
+      click: (e: Event) => {
         e.preventDefault();
         console.log('pse');
       },

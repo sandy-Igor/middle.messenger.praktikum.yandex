@@ -1,24 +1,23 @@
-.span-wrapper{
-  margin: 2px 0;
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  font-size: 15px;
-  width: 100%;
-  height: 1.3rem;
-  align-items: end;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: .0625rem solid #77b8f9;
+.span-wrapper {
+    margin: 2px 0;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    width: 100%;
+    height: 1.3rem;
+    align-items: end;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: .0625rem solid #77b8f9;
 
-  span {
-    cursor: pointer;
-  }
+    span {
+        cursor: pointer;
+    }
 }
-
 .spanBlue {
-  color: #1a6cf1;
+    color: #1a6cf1;
 }
 
 .spanRed {
-  color: #f13b2c;
+    color: #f13b2c;
 }

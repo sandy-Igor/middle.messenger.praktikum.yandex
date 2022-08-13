@@ -1,13 +1,13 @@
 import './style.scss';
-import authPage from './pages/auth';
-import registerPage from './pages/register';
-import pageNotFound from './pages/errors/pageNotFound';
-import pageServerError from './pages/errors/pageServerError';
-import changeProfilePage from './pages/changeProfile';
-import profilePage from './pages/profile';
-import changePassPage from './pages/changePassword';
-import chatPage from './pages/chat';
-import { render } from './utils/renderDOM';
+import authPage from './pages/auth/index.ts';
+import registerPage from './pages/register/index.ts';
+import pageNotFound from './pages/errors/pageNotFound.ts';
+import pageServerError from './pages/errors/pageServerError.ts';
+import changeProfilePage from './pages/changeProfile/index.ts';
+import profilePage from './pages/profile/index.ts';
+import changePassPage from './pages/changePassword/index.ts';
+import chatPage from './pages/chat/index.ts';
+import { render } from './utils/renderDOM.ts';
 
 let content = authPage;
 

@@ -1,6 +1,6 @@
 import chat from "./chat.hbs"
 import Block, { Props } from "../../block";
-import "./chat.css"
+import "./chat.scss"
 
 
 export default class ChatPage extends Block {

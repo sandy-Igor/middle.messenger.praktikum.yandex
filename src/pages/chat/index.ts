@@ -6,9 +6,8 @@ import InputSearch from "../../components/inputSearch/inputSearch";
 import ChatRoomItem from "../../components/chatRoomItem/chatRoomItem";
 import Message from "../../components/message/message";
 import ArrowButton from "../../components/arrowButton/arrowButton";
-import validation from "../../utils/validation";
-// import TextArea from "../../components/textArea/textArea";
 import Input from "../../components/input/input";
+import {formSubmitEvent} from "../../utils/events";
 
 
 const cutString = (str: string) => {
@@ -31,9 +30,10 @@ const inputSearch = new InputSearch(
     {
         spanValue: "Profile",
         inputPlaceholder: "Search",
+        inputName: "inputSearch",
         events: {
-            keydown: (e: Event) => {
-                console.log(e.target)
+            input: (e: Event) => {
+                console.log((e.target as HTMLInputElement).value)
             }
         }
     }
@@ -266,19 +266,14 @@ const recMess2 = new Message(
 const messageArea = new Input(
     'div',
     {
+        inputType: "text",
         inputClass: "message chat-input__msg",
-        inputName: "message",
-        textPlaceholder: "message",
+        inputName: "messageArea",
+        inputPlaceholder: "message",
         inputAutocomplete: "off",
         events: {
-            keydown: () => {
-            }
-        },
-        attr: {
-            class: "input-wrapper"
         }
-    }
-)
+    })
 
 const arrowButton = new ArrowButton(
     'div',
@@ -317,9 +312,7 @@ const data = {
     chatName: "Darth Vader",
     events: {
         submit: (e: Event) => {
-            e.preventDefault()
-            const textarea: HTMLInputElement | null = (e.target as HTMLFormElement).querySelector("input")
-            console.log(validation(textarea as HTMLInputElement, data));
+            formSubmitEvent(e, data)
         }
     }
 }

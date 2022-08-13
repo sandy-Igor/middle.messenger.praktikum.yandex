@@ -2,11 +2,11 @@ import labelInput from "./inputLabel.hbs"
 import "./inputLabel.scss"
 import Block from "../../block";
 
-
 export default class InputLabel extends Block {
     addEvents() {
         this.element.querySelectorAll("input").forEach(inp => {
-            inp.addEventListener("keydown", this.props.events.keydown);
+            inp.addEventListener("blur", this.props.events.blur)
+            inp.addEventListener("focus", this.props.events.focus)
         })
     }
 

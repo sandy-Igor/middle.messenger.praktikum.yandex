@@ -3,6 +3,7 @@ import ChangePassword from './changePassword';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
+import {formSubmitEvent, inputBlur, inputFocus} from "../../utils/events";
 
 const arrowButton = new ArrowButton(
     'div',
@@ -22,6 +23,7 @@ const inputOldPass = new InputLabel(
         label: 'previous password',
         inputType: 'password',
         inputId: 'old',
+        inputName: 'inputOldPass',
         events:
             {
                 keydown: (e: Event) => {
@@ -37,13 +39,13 @@ const inputPassword = new InputLabel(
         label: 'new password',
         inputType: 'password',
         inputId: 'new',
-        inputName: "password",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        inputName: 'inputPassword',
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -53,13 +55,13 @@ const inputPasswordScd = new InputLabel(
         label: 'repeat password',
         inputType: 'password',
         inputId: 'repeat',
-        inputName: "password",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        inputName: 'inputPasswordScd',
+        events: {
+            focus: inputFocus,
+            blur: (e: Event) => {
+                inputBlur(e, data)
+            }
+        }
     },
 );
 
@@ -69,9 +71,8 @@ const buttonSave = new Button(
         buttonType: 'button-save',
         btnValue: 'Save',
         events: {
-            click: (e: Event) => {
-                e.preventDefault();
-                console.log(document.querySelectorAll('.inputLabel-wrapper input'));
+            click: () => {
+                console.log("Submit");
             },
         },
         attr: {
@@ -89,6 +90,11 @@ const data = {
     inputPasswordScd: inputPasswordScd,
     buttons: true,
     button: buttonSave,
+    events: {
+        submit: (e: Event) => {
+            formSubmitEvent(e, data)
+        }
+    }
 };
 
 const changePassword = new ChangePassword(data);

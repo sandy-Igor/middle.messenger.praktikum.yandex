@@ -11,7 +11,6 @@ export default class AuthPage extends Block {
     addEvents() {
         this.element.querySelectorAll("form").forEach(form => {
             form.addEventListener("submit", this.props.events.submit)
-            form.addEventListener("blur", this.props.events.blur)
         })
     }
 

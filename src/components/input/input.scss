@@ -18,21 +18,27 @@
     padding: 0 10px;
     border-bottom: .0625rem solid #77b8f9;
 
-    &.error {
-      border-bottom: .0625rem solid #bb2022;
-    }
-
     &:focus {
       outline: none;
+      border-bottom: .0625rem solid #77b8f9;
+    }
+
+    &.error {
+      border-bottom: .0625rem solid #bb2022;
+      .message {
+        border: none;
+      }
     }
 
     &.message {
       border: none;
     }
+
   }
 
   span {
     height: 10px;
+    color: #bb2022;
     background: transparent;
   }
 }

@@ -25,10 +25,6 @@ const changeData = new Span(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log(changeData);
-                console.log(e.target)
-            },
-            attr: {
-                class: 'span-wrapper',
             },
         },
     },
@@ -43,10 +39,6 @@ const changePassword = new Span(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log(changePassword);
-                console.log(e.target)
-            },
-            attr: {
-                class: 'span-wrapper',
             },
         },
     },
@@ -60,9 +52,7 @@ const exit = new Span(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-            },
-            attr: {
-                class: 'span-wrapper',
+                console.log("exit");
             },
         },
     },
@@ -75,12 +65,7 @@ const inputMail = new InputLabel(
         inputType: 'text',
         inputId: 'dvader@deathstar.ru',
         disabled: "disabled",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target)
-                },
-            },
+        events: {},
     },
 );
 
@@ -91,12 +76,7 @@ const inputLogin = new InputLabel(
         inputType: 'text',
         inputId: 'Sith',
         disabled: "disabled",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target)
-                },
-            },
+        events: {},
     },
 );
 
@@ -107,12 +87,7 @@ const inputName = new InputLabel(
         inputType: 'text',
         inputId: 'Darth',
         disabled: "disabled",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target)
-                },
-            },
+        events: {}
     },
 );
 
@@ -123,12 +98,7 @@ const inputScdName = new InputLabel(
         inputType: 'text',
         inputId: 'Vader',
         disabled: "disabled",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target)
-                },
-            },
+        events: {},
     },
 );
 
@@ -139,12 +109,7 @@ const inputNick = new InputLabel(
         inputType: 'text',
         inputId: 'lordVaderSith',
         disabled: "disabled",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target)
-                },
-            },
+        events: {},
     },
 );
 
@@ -155,12 +120,7 @@ const inputPhone = new InputLabel(
         inputType: 'text',
         inputId: '+7-909-09-09-090',
         disabled: "disabled",
-        events:
-            {
-                keydown: (e: Event) => {
-                    console.log(e.target);
-                },
-            },
+        events: {},
     },
 );
 
