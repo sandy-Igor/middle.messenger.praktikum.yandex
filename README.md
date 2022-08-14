@@ -6,5 +6,3 @@ chat_sprint_1
 
 
 Netlify: https://62f73b205743950008fffc52--heroic-stroopwafel-c9915a.netlify.app
-
-

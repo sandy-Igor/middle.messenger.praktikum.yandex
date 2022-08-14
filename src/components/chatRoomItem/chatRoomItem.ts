@@ -1,9 +1,12 @@
 import chatRoom from "./chatRoomItem.hbs"
 import "./chatRoomItem.scss"
-import Block from "../../block";
+import Block, {Props} from "../../block";
 
 
 export default class ChatRoomItem extends Block {
+    constructor(tagName: string, props: Props) {
+        super(tagName, props);
+    }
 
     addEvents() {
        this.element?.addEventListener("click", this.props.events.click);

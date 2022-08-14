@@ -1,11 +1,11 @@
 import button from "./button.hbs";
 import "./button.scss"
-import Block from "../../block";
+import Block, {Props} from "../../block";
 
 
 export default class Button extends Block {
 
-    constructor(tagName: string, props: Record<string, any>) {
+    constructor(tagName: string, props: Props) {
         super(tagName, props);
     }
 

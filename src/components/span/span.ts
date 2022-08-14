@@ -2,8 +2,6 @@ import span from "./span.hbs"
 import "./span.scss"
 import Block from "../../block";
 
-
-
 export default class Span extends Block {
     addEvents() {
         this.element.querySelectorAll("span").forEach(span => {
