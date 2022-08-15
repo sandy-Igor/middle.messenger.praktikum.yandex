@@ -1,33 +1,34 @@
-import chat from "./chat.hbs"
-import Block, { Props } from "../../block";
-import "./chat.scss"
+import chat from './chat.hbs';
+import Block from '../../block';
+import './chat.scss';
 
-
-export default class ChatPage extends Block {
-
-    constructor(props: Props) {
-        super("div", props);
+type ChatProps = Record<string, any>
+export default class ChatPage extends Block<ChatProps> {
+    constructor(props: ChatProps) {
+        super('div', props);
     }
 
     addEvents() {
-        this.element.querySelectorAll("form").forEach(form => {
-            form.addEventListener("submit", this.props.events.submit)
-        })
+        this.element.querySelectorAll('form')
+            .forEach(form => {
+                form.addEventListener('submit', this.props.events.submit);
+            });
     }
 
     addAttribute() {
         const {
-            attr = {class: "chat-page-box"}
+            attr = { class: 'chat-page-box' }
         } = this.props;
-        const _attr = attr as Record<string, any>
+        const _attr = attr as Record<string, any>;
 
-        Object.entries(_attr).forEach(([key, value]) => {
-            this.element.setAttribute(key, value);
-        });
+        Object.entries(_attr)
+            .forEach(([key, value]) => {
+                this.element.setAttribute(key, value);
+            });
     }
 
     render() {
         return this.compile(chat, this.props);
     }
-
 }
+

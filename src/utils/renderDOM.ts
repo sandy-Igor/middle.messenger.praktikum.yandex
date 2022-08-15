@@ -1,11 +1,12 @@
-import Block from "../block";
+import Block from '../block';
 
-export function render(query: string, block: Block) {
-  const root = document.querySelector(query);
+export function render(query: string, block: Block<unknown>) {
+    const root = document.querySelector(query);
 
-  root?.appendChild(block.getContent());
+    root?.appendChild(block.getContent());
 
-  block.dispatchComponentDidMount();
+    block.dispatchComponentDidMount();
 
-  return root;
+    return root;
 }
+

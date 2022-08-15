@@ -1,19 +1,23 @@
-import button from "./button.hbs";
-import "./button.scss"
-import Block, {Props} from "../../block";
+import button from './button.hbs';
+import './button.scss';
+import Block from '../../block';
 
-
-export default class Button extends Block {
-
-    constructor(tagName: string, props: Props) {
+type ButtonProps = {
+    buttonType: string
+    btnValue: string
+    events: Record<string, Function>
+    attr?: Record<string, string>
+}
+export default class Button extends Block<ButtonProps> {
+    constructor(tagName: string, props: ButtonProps) {
         super(tagName, props);
     }
 
     addEvents() {
-            this.element.querySelectorAll("button").forEach(btn => {
-                btn.addEventListener("click", this.props.events.click);
-            })
-
+        this.element.querySelectorAll('button')
+            .forEach(btn => {
+                btn.addEventListener('click', this.props.events.click);
+            });
     }
 
     render() {

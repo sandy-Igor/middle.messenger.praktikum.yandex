@@ -1,46 +1,45 @@
 .inputLabel-wrapper {
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  font-size: 15px;
-  width: inherit;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  text-align: end;
-
-
-  .label-input-section {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 15px;
+    width: inherit;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    width: 100%;
+    align-content: center;
+    text-align: end;
 
-    input {
+    .label-input-section {
+        display: flex;
+        justify-content: center;
+        width: 100%;
 
-      width: 50%;
-      box-sizing: border-box;
-      border: none;
-      background-color: transparent;
-      height: 2rem;
-      outline: none;
-      text-align: right;
-      border-bottom: .0625rem solid #77b8f9;
+        input {
+
+            width: 50%;
+            box-sizing: border-box;
+            border: none;
+            background-color: transparent;
+            height: 2rem;
+            outline: none;
+            text-align: right;
+            border-bottom: .0625rem solid #77b8f9;
+
+        }
+
+        label {
+            width: 50%;
+            display: flex;
+            border-bottom: .0625rem solid #77b8f9;
+        }
+
 
     }
 
-    label {
-      width: 50%;
-      display: flex;
-      border-bottom: .0625rem solid #77b8f9;
+    span {
+        height: 10px;
+        color: #bb2022;
+        background: transparent;
+        text-align: right;
     }
-
-
-  }
-
-  span {
-    height: 10px;
-    color: #bb2022;
-    background: transparent;
-    text-align: right;
-  }
 }

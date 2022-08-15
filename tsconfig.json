@@ -1,16 +1,14 @@
 {
   "compilerOptions": {
     "outDir": "dist",
-    "declaration": false,
-    "strictNullChecks": true,
-    "sourceMap": true,
     "target": "es2017",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
+    "declaration": false,
     "noImplicitAny": true,
     "noUnusedLocals": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
     "noUnusedParameters": true,
   }
 }
+

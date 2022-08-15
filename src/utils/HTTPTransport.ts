@@ -1,68 +1,83 @@
-enum METHODS {
+enum Methods {
     GET = 'GET',
     POST = 'POST',
     PUT = 'PUT',
     DELETE = 'DELETE',
 }
 
-type Options = {
+interface Options {
     timeout?: number;
-    method?: METHODS;
-    headers?: Record<string, any>;
-    data: Object
+    method?: Methods;
+    headers?: Record<string, string>;
+    data: Object;
 }
 
-function queryStringify(data: Object) {
-    if (!data) return
-    let str = '?'
-    Object.entries(data).forEach(([key, value]) => {
-        str = str.concat(`${key}=${value}&`);
-    })
-    return str.substring(0, str.length - 1);
+function queryStringify(data: Record<string, any>) {
+    if (!data) return;
+    const keys = Object.keys(data);
+    return keys.reduce((result: string, key: string, index: number) => {
+        return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
+    }, '?');
 }
 
 export default class HTTPTransport {
-    get = (url: string, options:Options) => {
-
-        return this.request(url, {...options, method: METHODS.GET}, options.timeout);
+    get = async (url: string, options: Options) => {
+        return await this.request(url, {
+            ...options,
+            method: Methods.GET
+        }, options.timeout);
     };
 
-    post = (url: string, options: Options) => {
-        return this.request(url, {...options, method: METHODS.POST}, options.timeout);
+    post = async (url: string, options: Options) => {
+        return await this.request(url, {
+            ...options,
+            method: Methods.POST
+        }, options.timeout);
     };
 
-    put = (url: string, options: Options) => {
-        return this.request(url, {...options, method: METHODS.PUT}, options.timeout);
+    put = async (url: string, options: Options) => {
+        return await this.request(url, {
+            ...options,
+            method: Methods.PUT
+        }, options.timeout);
     };
 
-    delete = (url: string, options: Options) => {
-        return this.request(url, {...options, method: METHODS.DELETE}, options.timeout);
+    delete = async (url: string, options: Options) => {
+        return await this.request(url, {
+            ...options,
+            method: Methods.DELETE
+        }, options.timeout);
     };
 
-    request = (url: string, options: Options, timeout = 5000) => {
-        const {headers = {}, method, data} = options;
+    request = async (url: string, options: Options, timeout = 5000) => {
+        const {
+            headers = {},
+            method,
+            data
+        } = options;
 
-        return new Promise(function(resolve, reject) {
+        return await new Promise(function (resolve, reject) {
             if (!method) {
                 reject('No method');
                 return;
             }
 
             const xhr = new XMLHttpRequest();
-            const isGet = method === METHODS.GET;
+            const isGet = method === Methods.GET;
 
             xhr.open(
                 method,
                 isGet && !!data
                     ? `${url}${queryStringify(data)}`
-                    : url,
+                    : url
             );
 
-            Object.keys(headers).forEach(key => {
-                xhr.setRequestHeader(key, headers[key]);
-            });
+            Object.keys(headers)
+                .forEach(key => {
+                    xhr.setRequestHeader(key, headers[key]);
+                });
 
-            xhr.onload = function() {
+            xhr.onload = function () {
                 resolve(xhr);
             };
 
@@ -80,3 +95,4 @@ export default class HTTPTransport {
         });
     };
 }
+

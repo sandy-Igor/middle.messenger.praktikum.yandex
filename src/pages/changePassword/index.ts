@@ -3,7 +3,7 @@ import ChangePassword from './changePassword';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
-import {formSubmitEvent, inputBlur, inputFocus} from "../../utils/events";
+import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
 
 const arrowButton = new ArrowButton(
     'div',
@@ -12,9 +12,9 @@ const arrowButton = new ArrowButton(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log('arrBtn');
-            },
-        },
-    },
+            }
+        }
+    }
 );
 
 const inputOldPass = new InputLabel(
@@ -28,9 +28,9 @@ const inputOldPass = new InputLabel(
             {
                 keydown: (e: Event) => {
                     console.log(e.target);
-                },
-            },
-    },
+                }
+            }
+    }
 );
 
 const inputPassword = new InputLabel(
@@ -43,10 +43,10 @@ const inputPassword = new InputLabel(
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const inputPasswordScd = new InputLabel(
@@ -59,10 +59,10 @@ const inputPasswordScd = new InputLabel(
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const buttonSave = new Button(
@@ -72,27 +72,27 @@ const buttonSave = new Button(
         btnValue: 'Save',
         events: {
             click: () => {
-                console.log("Submit");
-            },
+                console.log('Submit');
+            }
         },
         attr: {
-            class: 'box-profile-bottom',
-        },
-    },
+            class: 'box-profile-bottom'
+        }
+    }
 );
 
 const data = {
-    avatarIcon: avatarIcon,
-    arrowButton: arrowButton,
+    avatarIcon,
+    arrowButton,
     profile: false,
-    inputOldPass: inputOldPass,
-    inputPassword: inputPassword,
-    inputPasswordScd: inputPasswordScd,
+    inputOldPass,
+    inputPassword,
+    inputPasswordScd,
     buttons: true,
     button: buttonSave,
     events: {
         submit: (e: Event) => {
-            formSubmitEvent(e, data)
+            formSubmitEvent(e, data);
         }
     }
 };

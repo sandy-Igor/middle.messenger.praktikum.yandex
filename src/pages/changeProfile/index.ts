@@ -3,7 +3,7 @@ import ChangeProfile from './changeProfile';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
-import {formSubmitEvent, inputBlur, inputFocus} from "../../utils/events";
+import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
 
 const arrowButton = new ArrowButton(
     'div',
@@ -12,9 +12,9 @@ const arrowButton = new ArrowButton(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log('arrBtn');
-            },
-        },
-    },
+            }
+        }
+    }
 );
 
 const inputMail = new InputLabel(
@@ -22,15 +22,15 @@ const inputMail = new InputLabel(
     {
         label: 'Mail',
         inputType: 'text',
-        inputName: "inputMail",
+        inputName: 'inputMail',
         inputId: 'dvader@deathstar.ru',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const inputLogin = new InputLabel(
@@ -39,14 +39,14 @@ const inputLogin = new InputLabel(
         label: 'Login',
         inputType: 'text',
         inputId: 'Sith',
-        inputName: "inputLogin",
+        inputName: 'inputLogin',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const inputName = new InputLabel(
@@ -55,14 +55,14 @@ const inputName = new InputLabel(
         label: 'Name',
         inputType: 'text',
         inputId: 'Darth',
-        inputName: "inputName",
+        inputName: 'inputName',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const inputScdName = new InputLabel(
@@ -71,14 +71,14 @@ const inputScdName = new InputLabel(
         label: 'Surname',
         inputType: 'text',
         inputId: 'Vader',
-        inputName: "inputScdName",
+        inputName: 'inputScdName',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const inputNick = new InputLabel(
@@ -90,10 +90,10 @@ const inputNick = new InputLabel(
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const inputPhone = new InputLabel(
@@ -102,14 +102,14 @@ const inputPhone = new InputLabel(
         label: 'Phone',
         inputType: 'text',
         inputId: '+7-909-09-09-090',
-        inputName: "inputPhone",
+        inputName: 'inputPhone',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
-                inputBlur(e, data)
+                inputBlur(e, data);
             }
         }
-    },
+    }
 );
 
 const buttonSave = new Button(
@@ -120,29 +120,29 @@ const buttonSave = new Button(
         events: {
             click: () => {
                 console.log('Submit');
-            },
+            }
         },
         attr: {
-            class: 'box-profile-bottom',
-        },
-    },
+            class: 'box-profile-bottom'
+        }
+    }
 );
 
 const data = {
-    avatarIcon: avatarIcon,
-    arrowButton: arrowButton,
+    avatarIcon,
+    arrowButton,
     profile: true,
-    inputMail: inputMail,
-    inputLogin: inputLogin,
-    inputName: inputName,
-    inputScdName: inputScdName,
-    inputNick: inputNick,
-    inputPhone: inputPhone,
+    inputMail,
+    inputLogin,
+    inputName,
+    inputScdName,
+    inputNick,
+    inputPhone,
     buttons: true,
     button: buttonSave,
     events: {
         submit: (e: Event) => {
-            formSubmitEvent(e, data)
+            formSubmitEvent(e, data);
         }
     }
 };
@@ -150,3 +150,4 @@ const data = {
 const changeProfilePage = new ChangeProfile(data);
 
 export default changeProfilePage;
+

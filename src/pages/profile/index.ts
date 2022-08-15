@@ -11,9 +11,9 @@ const arrowButton = new ArrowButton(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log('arrBtn');
-            },
-        },
-    },
+            }
+        }
+    }
 );
 
 const changeData = new Span(
@@ -25,9 +25,9 @@ const changeData = new Span(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log(changeData);
-            },
-        },
-    },
+            }
+        }
+    }
 );
 
 const changePassword = new Span(
@@ -39,9 +39,9 @@ const changePassword = new Span(
             click: (e: Event) => {
                 e.preventDefault();
                 console.log(changePassword);
-            },
-        },
-    },
+            }
+        }
+    }
 );
 
 const exit = new Span(
@@ -52,10 +52,10 @@ const exit = new Span(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log("exit");
-            },
-        },
-    },
+                console.log('exit');
+            }
+        }
+    }
 );
 
 const inputMail = new InputLabel(
@@ -64,9 +64,9 @@ const inputMail = new InputLabel(
         label: 'Mail',
         inputType: 'text',
         inputId: 'dvader@deathstar.ru',
-        disabled: "disabled",
-        events: {},
-    },
+        disabled: 'disabled',
+        events: {}
+    }
 );
 
 const inputLogin = new InputLabel(
@@ -75,9 +75,9 @@ const inputLogin = new InputLabel(
         label: 'Login',
         inputType: 'text',
         inputId: 'Sith',
-        disabled: "disabled",
-        events: {},
-    },
+        disabled: 'disabled',
+        events: {}
+    }
 );
 
 const inputName = new InputLabel(
@@ -86,9 +86,9 @@ const inputName = new InputLabel(
         label: 'Name',
         inputType: 'text',
         inputId: 'Darth',
-        disabled: "disabled",
+        disabled: 'disabled',
         events: {}
-    },
+    }
 );
 
 const inputScdName = new InputLabel(
@@ -97,9 +97,9 @@ const inputScdName = new InputLabel(
         label: 'Surname',
         inputType: 'text',
         inputId: 'Vader',
-        disabled: "disabled",
-        events: {},
-    },
+        disabled: 'disabled',
+        events: {}
+    }
 );
 
 const inputNick = new InputLabel(
@@ -108,9 +108,9 @@ const inputNick = new InputLabel(
         label: 'Chat name',
         inputType: 'text',
         inputId: 'lordVaderSith',
-        disabled: "disabled",
-        events: {},
-    },
+        disabled: 'disabled',
+        events: {}
+    }
 );
 
 const inputPhone = new InputLabel(
@@ -119,26 +119,27 @@ const inputPhone = new InputLabel(
         label: 'Phone',
         inputType: 'text',
         inputId: '+7-909-09-09-090',
-        disabled: "disabled",
-        events: {},
-    },
+        disabled: 'disabled',
+        events: {}
+    }
 );
 
 const data = {
-    avatarIcon: avatarIcon,
-    arrowButton: arrowButton,
+    avatarIcon,
+    arrowButton,
     profile: true,
-    inputMail: inputMail,
-    inputLogin: inputLogin,
-    inputName: inputName,
-    inputScdName: inputScdName,
-    inputNick: inputNick,
-    inputPhone: inputPhone,
-    changeData: changeData,
-    changePassword: changePassword,
-    exit: exit,
+    inputMail,
+    inputLogin,
+    inputName,
+    inputScdName,
+    inputNick,
+    inputPhone,
+    changeData,
+    changePassword,
+    exit
 };
 
 const profilePage = new Profile(data);
 
 export default profilePage;
+

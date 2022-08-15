@@ -1,4 +1,4 @@
-chat_sprint_1
+chat_sprint_2
 
 "npm run dev" => parcel src/index.html
 "npm run build" to build
@@ -6,4 +6,5 @@ chat_sprint_1
 
 
 Netlify: https://62f73b205743950008fffc52--heroic-stroopwafel-c9915a.netlify.app
+Figma: https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1
 
