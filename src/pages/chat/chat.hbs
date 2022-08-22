@@ -1,58 +1,36 @@
-<div class="chat-page-box">
-    <ul class="chat-list-box">
-{{> inputSearch
-        spanValue = spanValue
-        inputPlaceholder = inputSearchPlaceholder
+<ul class="chat-list-box">
 
-}}
-            {{#each chats}}
-            <li>
-        {{>chatRoomItem
-                avatarImage = avatarImage
-                chatName = chatName
-                userMsg = userMsg
-                lastMsg = lastMsg
-                dateMsg = dateMsg
-                newMsg = newMsg
-                selected = selected
-        }}
-            </li>
-            {{/each}}
+    {{{inputSearch}}}
+    <li class="chat-list-element">{{{chatLuke}}}</li>
+    <li class="chat-list-element">{{{chatDarthVader}}}</li>
+    <li class="chat-list-element">{{{chatObiWan}}}</li>
+    <li class="chat-list-element">{{{chatHanSolo}}}</li>
+    <li class="chat-list-element">{{{chatYoda}}}</li>
+    <li class="chat-list-element">{{{chatC3PO}}}</li>
+    <li class="chat-list-element">{{{chatLeia}}}</li>
+    <li class="chat-list-element">{{{chatSkywalker}}}</li>
+    <li class="chat-list-element">{{{chatPadme}}}</li>
+    <li class="chat-list-element">{{{chatJinn}}}</li>
+    <li class="chat-list-element">{{{chatDooku}}}</li>
+</ul>
+<div class="chat-area-box">
+    <ul class="chat-area-footer">
+        <li class="chat-list-element">
+            {{{openedChat}}}
+        </li>
     </ul>
-    <div class="chat-area-box">
-        <ul class="chat-area-footer">
-           <li>
-            {{>chatRoomItem
-                    avatarImage = avatarImage
-                    chatName = chatName
+    <div class="chat-area-main">
+        <time datetime="2021-11-18T09:54" class="message-date"><span>Obi-Wan Episode VI</span></time>
+        {{{recMess1}}}
+        {{{sentMess1}}}
+        {{{recMess2}}}
+    </div>
+    <div class="chat-msg-bottom">
+        <img src="{{clip}}" alt="#">
+        <form>
+            {{{messageArea}}}
+            {{{arrowButton}}}
+        </form>
 
-            }}
-           </li>
-        </ul>
-        <div class="chat-area-main">
-            <div class="message-date"> <span>Obi-Wan Episode VI</span></div>
-                {{#each msg}}
-                    {{> message
-                            messageContent = messageContent
-                            messageOwner = messageOwner
-                            messageTime = messageTime
-                            imgSource = image.imgSource
-                    }}
-                {{/each}}
-
-        </div>
-        <div class="chat-msg-bottom">
-            <img src="{{clip}}" alt="">
-                {{>input
-                        inputType = inputType
-                        inputPlaceholder = inputMsgPlaceholder
-                        label = label
-                        custom = inputChat
-                }}
-            {{> arrowButton
-                    directionRight = directionRight
-            }}
-
-        </div>
     </div>
 </div>

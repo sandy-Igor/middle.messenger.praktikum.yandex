@@ -1,46 +1,49 @@
 @mixin buttonCommonPreset {
-  margin: 10px 0;
-  border-radius: 8px;
-  width: 100%;
-  height: 40px;
-  font: 1.125rem/1.3125rem Roboto Regular,sans-serif;
-  cursor: pointer;
+    margin: 10px 0;
+    border-radius: 8px;
+    width: 100%;
+    height: 40px;
+    font: 1.125rem/1.3125rem Roboto Regular, sans-serif;
+    cursor: pointer;
 }
 
 @mixin buttonHoverPreset {
-  opacity: 80%;
-  transition: 0.3s;
+    opacity: 80%;
+    transition: 0.3s;
 }
 
-.buttonReady {
-  @include buttonCommonPreset;
-  background: #1A6CF1;
-  border: none;
-  color: #ffffff;
-  &:hover{
-    @include buttonHoverPreset;
-  }
+.button-ready {
+    @include buttonCommonPreset;
+    background: #1A6CF1;
+    border: none;
+    color: #ffffff;
+
+    &:hover {
+        @include buttonHoverPreset;
+    }
 }
 
-.buttonScd {
-@include buttonCommonPreset;
-  background: transparent;
-  border: #ffffff;
-  color: #363B4B;
-  &:hover {
-    @include buttonHoverPreset;
-  }
+.button-scd {
+    @include buttonCommonPreset;
+    background: transparent;
+    border: #ffffff;
+    color: #363B4B;
+
+    &:hover {
+        @include buttonHoverPreset;
+    }
 }
 
-.buttonSave {
-  @include buttonCommonPreset;
-  width: 50%;
-  border-radius: 8px;
-  background: #1A6CF1;
-  border: none;
-  color: #ffffff;
+.button-save {
+    @include buttonCommonPreset;
+    width: 50%;
+    border-radius: 8px;
+    background: #1A6CF1;
+    border: none;
+    color: #ffffff;
 
-  &:hover{
-    @include buttonHoverPreset;
-  }
+    &:hover {
+        @include buttonHoverPreset;
+    }
 }
+
