@@ -1,9 +1,37 @@
-import avatarIcon from '../../../static/images/avatar-png-icon.png';
+import avatarImage from '../../../static/images/avatar-png-icon.png';
 import ChangeProfile from './changeProfile';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
+import { router } from '../../router/router';
+import { ChangeUser } from '../../api/user-api';
+import { AuthApi } from '../../api/auth-api';
+import { Props } from '../../block';
+import Avatar from '../../components/avatar/avatar';
+import store from '../../store/Store';
+import userController from '../../controllers/userController';
+
+const userData = new AuthApi();
+userData.getUser()
+    .then(r => {
+        return r as XMLHttpRequest;
+    })
+    .then(data => {
+        return (JSON.parse(data.response as string));
+    })
+    .then(val => {
+        Object.entries(val)
+            .forEach(([key, val]) => {
+                if (data.hasOwnProperty(key)) {
+                    if (data[key] instanceof Avatar) {
+                        data[key].setProps({ inputValue: `https://ya-praktikum.tech/api/v2/resources${val}` });
+                    } else {
+                        data[key].setProps({ inputValue: val });
+                    }
+                }
+            });
+    });
 
 const arrowButton = new ArrowButton(
     'div',
@@ -11,18 +39,38 @@ const arrowButton = new ArrowButton(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log('arrBtn');
+                router.go('/profilePage');
+                console.log(avatar);
             }
         }
     }
 );
 
-const inputMail = new InputLabel(
+const avatar = new Avatar(
+        'label',
+        {
+            inputValue: avatarImage,
+            events: {
+                submit: (e: Event) => {
+                    e.preventDefault();
+                    const form = avatar.element.querySelector('form')
+                    userController.changeAvatar(form as HTMLFormElement);
+                    console.log(store.getState())
+                },
+                change: () => {
+                    (avatar.element.querySelector('input[type=submit]') as HTMLElement).click();
+                }
+            }
+        }
+    )
+;
+
+const email = new InputLabel(
     'li',
     {
         label: 'Mail',
         inputType: 'text',
-        inputName: 'inputMail',
+        inputName: 'email',
         inputId: 'dvader@deathstar.ru',
         events: {
             focus: inputFocus,
@@ -33,13 +81,13 @@ const inputMail = new InputLabel(
     }
 );
 
-const inputLogin = new InputLabel(
+const login = new InputLabel(
     'li',
     {
         label: 'Login',
         inputType: 'text',
         inputId: 'Sith',
-        inputName: 'inputLogin',
+        inputName: 'login',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -49,13 +97,13 @@ const inputLogin = new InputLabel(
     }
 );
 
-const inputName = new InputLabel(
+const first_name = new InputLabel(
     'li',
     {
         label: 'Name',
         inputType: 'text',
         inputId: 'Darth',
-        inputName: 'inputName',
+        inputName: 'first_name',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -65,13 +113,13 @@ const inputName = new InputLabel(
     }
 );
 
-const inputScdName = new InputLabel(
+const second_name = new InputLabel(
     'li',
     {
         label: 'Surname',
         inputType: 'text',
         inputId: 'Vader',
-        inputName: 'inputScdName',
+        inputName: 'second_name',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -81,12 +129,13 @@ const inputScdName = new InputLabel(
     }
 );
 
-const inputNick = new InputLabel(
+const display_name = new InputLabel(
     'li',
     {
         label: 'Chat name',
         inputType: 'text',
         inputId: 'lordVaderSith',
+        inputName: 'display_name',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -96,13 +145,13 @@ const inputNick = new InputLabel(
     }
 );
 
-const inputPhone = new InputLabel(
+const phone = new InputLabel(
     'li',
     {
         label: 'Phone',
         inputType: 'text',
         inputId: '+7-909-09-09-090',
-        inputName: 'inputPhone',
+        inputName: 'phone',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -128,21 +177,22 @@ const buttonSave = new Button(
     }
 );
 
-const data = {
-    avatarIcon,
+const data: Props = {
+    avatar: avatar,
     arrowButton,
     profile: true,
-    inputMail,
-    inputLogin,
-    inputName,
-    inputScdName,
-    inputNick,
-    inputPhone,
+    email,
+    login,
+    first_name,
+    second_name,
+    display_name,
+    phone,
     buttons: true,
     button: buttonSave,
     events: {
         submit: (e: Event) => {
-            formSubmitEvent(e, data);
+            const formData = formSubmitEvent(e, data);
+            userController.changeProfile(formData as ChangeUser);
         }
     }
 };

@@ -1,41 +1,43 @@
-<div class="box-return">
-    {{{arrowButton}}}
-</div>
-<div class="box-profile">
-    <div class="box-profile-footer">
-        <label class="box-avatar-changer">
-            <input type="file"/>
-            <img src="{{avatarIcon}}" alt="#">
-            <span class="avatarChanger">Change avatar</span>
-        </label>
+<div class="profilePage-box">
+    <div class="box-return">
+        {{{arrowButton}}}
     </div>
-    <form>
-        <ul class="profile-form-wrapper">
-            {{#if profile}}
-                {{{inputMail}}}
-                {{{inputLogin}}}
-                {{{inputName}}}
-                {{{inputScdName}}}
-                {{{inputNick}}}
-                {{{inputPhone}}}
-
-            {{else}}
-                {{{inputOldPass}}}
-                {{{inputPassword}}}
-                {{{inputPasswordScd}}}
-            {{/if}}
-        </ul>
-        <div class="box-profile-bottom">
-            {{#if buttons}}
-                {{{button}}}
-            {{else}}
-                <ul class="list-wrapper">
-                    {{{changeData}}}
-                    {{{changePassword}}}
-                    {{{exit}}}
-                </ul>
-            {{/if}}
-
+    <div class="box-profile">
+        <div class="box-profile-footer">
+            {{{avatar}}}
         </div>
-    </form>
+        <form>
+            <ul class="profile-form-wrapper">
+                {{#if profile}}
+                    {{{inputPhone}}}
+
+                    {{{email}}}
+                    {{{login}}}
+                    {{{first_name}}}
+                    {{{second_name}}}
+                    {{{phone}}}
+                    {{{display_name}}}
+                    {{{password}}}
+                    {{{passwordScd}}}
+
+                {{else}}
+                    {{{oldPassword}}}
+                    {{{newPassword}}}
+                    {{{passwordScd}}}
+                {{/if}}
+            </ul>
+            <div class="box-profile-bottom">
+                {{#if buttons}}
+                    {{{button}}}
+                {{else}}
+                    <ul class="list-wrapper">
+                        {{{changeData}}}
+                        {{{changePassword}}}
+                        {{{exit}}}
+                    </ul>
+                {{/if}}
+
+            </div>
+        </form>
+    </div>
 </div>

@@ -4,12 +4,15 @@ import validation from './validation';
 export function formSubmitEvent(e: Event, props: Props) {
     e.preventDefault();
     const inputs: Record<string, string> = {};
-    document.querySelectorAll('input')
+    (e.target as HTMLFormElement)?.querySelectorAll('input')
         .forEach(inp => {
-            validation(inp, props);
-            inputs[inp.name] = inp.value;
+            console.log(inp.files);
+            if (validation(inp, props)) {
+                inputs[inp.name] = inp.value;
+            }
         });
     console.log(inputs);
+    return inputs;
 }
 
 export function inputFocus(e: Event) {

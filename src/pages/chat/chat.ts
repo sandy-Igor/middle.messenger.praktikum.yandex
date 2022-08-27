@@ -17,14 +17,16 @@ export default class ChatPage extends Block<ChatProps> {
 
     addAttribute() {
         const {
-            attr = { class: 'chat-page-box' }
+            attr
         } = this.props;
         const _attr = attr as Record<string, any>;
 
-        Object.entries(_attr)
-            .forEach(([key, value]) => {
-                this.element.setAttribute(key, value);
-            });
+        if (attr) {
+            Object.entries(_attr)
+                .forEach(([key, value]) => {
+                    this.element.setAttribute(key, value);
+                });
+        }
     }
 
     render() {

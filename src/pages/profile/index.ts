@@ -3,6 +3,32 @@ import Profile from './profile';
 import Span from '../../components/span/span';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
+import { router } from '../../router/router';
+import { AuthApi } from '../../api/auth-api';
+import { Props } from '../../block';
+import Avatar from '../../components/avatar/avatar';
+import store from '../../store/Store';
+
+const userData = new AuthApi();
+userData.getUser()
+    .then(r => {
+        return r as XMLHttpRequest;
+    })
+    .then(data => {
+        return (JSON.parse(data.response as string));
+    })
+    .then(val => {
+        Object.entries(val)
+            .forEach(([key, val]) => {
+                if (data.hasOwnProperty(key)) {
+                    if(data[key] instanceof Avatar) {
+                        data[key].setProps({ inputValue: `https://ya-praktikum.tech/api/v2/resources${val}` })
+                    } else {
+                        data[key].setProps({ inputValue: val });
+                    }
+                }
+            });
+    });
 
 const arrowButton = new ArrowButton(
     'div',
@@ -10,11 +36,23 @@ const arrowButton = new ArrowButton(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log('arrBtn');
+                router.back();
+                console.log(store.getState());
             }
         }
     }
 );
+
+const avatar = new Avatar(
+    'label',
+    {
+        inputValue: avatarIcon,
+        disabled: 'disabled',
+        events: {
+
+        }
+    }
+)
 
 const changeData = new Span(
     'li',
@@ -24,7 +62,7 @@ const changeData = new Span(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log(changeData);
+                router.go('/changeProfilePage');
             }
         }
     }
@@ -38,7 +76,7 @@ const changePassword = new Span(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log(changePassword);
+                router.go('/changePassPage');
             }
         }
     }
@@ -52,88 +90,98 @@ const exit = new Span(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log('exit');
+                const auth = new AuthApi();
+                auth.logout()
+                     .then(r => r)
+                router.go('/');
             }
         }
     }
 );
 
-const inputMail = new InputLabel(
+const email = new InputLabel(
     'li',
     {
+        inputValue: '',
         label: 'Mail',
         inputType: 'text',
+        inputName: 'email',
         inputId: 'dvader@deathstar.ru',
         disabled: 'disabled',
         events: {}
     }
 );
 
-const inputLogin = new InputLabel(
+const login = new InputLabel(
     'li',
     {
         label: 'Login',
         inputType: 'text',
         inputId: 'Sith',
+        inputName: 'login',
         disabled: 'disabled',
         events: {}
     }
 );
 
-const inputName = new InputLabel(
+const first_name = new InputLabel(
     'li',
     {
         label: 'Name',
         inputType: 'text',
         inputId: 'Darth',
+        inputName: 'first_name',
         disabled: 'disabled',
         events: {}
     }
 );
 
-const inputScdName = new InputLabel(
+const second_name = new InputLabel(
     'li',
     {
         label: 'Surname',
         inputType: 'text',
         inputId: 'Vader',
+        inputName: 'second_name',
         disabled: 'disabled',
         events: {}
     }
 );
 
-const inputNick = new InputLabel(
+const display_name = new InputLabel(
     'li',
     {
         label: 'Chat name',
         inputType: 'text',
         inputId: 'lordVaderSith',
+        inputName: 'display_name',
         disabled: 'disabled',
         events: {}
     }
 );
 
-const inputPhone = new InputLabel(
+const phone = new InputLabel(
     'li',
     {
         label: 'Phone',
         inputType: 'text',
         inputId: '+7-909-09-09-090',
+        inputName: 'phone',
         disabled: 'disabled',
         events: {}
     }
 );
 
-const data = {
-    avatarIcon,
+const data: Props = {
+    avatar: avatar,
     arrowButton,
     profile: true,
-    inputMail,
-    inputLogin,
-    inputName,
-    inputScdName,
-    inputNick,
-    inputPhone,
+    email,
+    login,
+    first_name,
+    second_name,
+    phone,
+    display_name,
     changeData,
     changePassword,
     exit
@@ -141,5 +189,6 @@ const data = {
 
 const profilePage = new Profile(data);
 
-export default profilePage;
+export default profilePage
+
 

@@ -8,6 +8,7 @@ import Message from '../../components/message/message';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import Input from '../../components/input/input';
 import { formSubmitEvent } from '../../utils/events';
+import { router } from '../../router/router';
 
 const triggerToCutString: number = 54;
 const cutString = (str: string) => {
@@ -35,6 +36,10 @@ const inputSearch = new InputSearch(
         events: {
             input: (e: Event) => {
                 console.log((e.target as HTMLInputElement).value);
+            },
+            click: (e: Event) => {
+                e.preventDefault();
+                router.go('/profilePage');
             }
         }
     }
@@ -209,6 +214,11 @@ const openedChat = new ChatRoomItem(
         events: {
             click: (e: Event) => {
                 console.log(e);
+            },
+            optClick: (e: Event) => {
+                e.stopPropagation()
+                console.log(e);
+                console.log('sdse');
             }
         }
     }

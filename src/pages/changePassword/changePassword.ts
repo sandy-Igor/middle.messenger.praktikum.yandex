@@ -16,9 +16,7 @@ export default class ChangePassword extends Block<ChangePasswordProps> {
 
     addAttribute() {
         const {
-            attr = {
-                class: 'profilePage-box'
-            }
+            attr
         } = this.props;
         const _attr = attr as Record<string, any>;
 

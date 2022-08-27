@@ -1,9 +1,11 @@
 import avatarIcon from '../../../static/images/avatar-png-icon.png';
-import ChangePassword from './changePassword';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
+import { router } from '../../router/router';
+import { ChangePass, UserApi } from '../../api/user-api';
+import ChangePassword from './changePassword';
 
 const arrowButton = new ArrowButton(
     'div',
@@ -11,19 +13,19 @@ const arrowButton = new ArrowButton(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log('arrBtn');
+                router.back();
             }
         }
     }
 );
 
-const inputOldPass = new InputLabel(
+const oldPassword = new InputLabel(
     'li',
     {
         label: 'previous password',
         inputType: 'password',
         inputId: 'old',
-        inputName: 'inputOldPass',
+        inputName: 'oldPassword',
         events:
             {
                 keydown: (e: Event) => {
@@ -33,13 +35,13 @@ const inputOldPass = new InputLabel(
     }
 );
 
-const inputPassword = new InputLabel(
+const newPassword = new InputLabel(
     'li',
     {
         label: 'new password',
         inputType: 'password',
         inputId: 'new',
-        inputName: 'inputPassword',
+        inputName: 'newPassword',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -49,13 +51,13 @@ const inputPassword = new InputLabel(
     }
 );
 
-const inputPasswordScd = new InputLabel(
+const passwordScd = new InputLabel(
     'li',
     {
         label: 'repeat password',
         inputType: 'password',
         inputId: 'repeat',
-        inputName: 'inputPasswordScd',
+        inputName: 'passwordScd',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -85,14 +87,16 @@ const data = {
     avatarIcon,
     arrowButton,
     profile: false,
-    inputOldPass,
-    inputPassword,
-    inputPasswordScd,
+    oldPassword,
+    newPassword,
+    passwordScd,
     buttons: true,
     button: buttonSave,
     events: {
         submit: (e: Event) => {
-            formSubmitEvent(e, data);
+            const formData = formSubmitEvent(e, data);
+            const userApi = new UserApi();
+            userApi.changePassword(formData as ChangePass).then(data => console.log(data))
         }
     }
 };

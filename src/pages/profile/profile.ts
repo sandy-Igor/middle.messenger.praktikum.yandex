@@ -1,17 +1,21 @@
 import Block from '../../block';
 import profileTpl from '../../components/profileTpl/profileTpl.hbs';
+import Connect from '../../store/Connect';
+import store, { StoreEvents } from '../../store/Store';
 
 type ProfileProps = Record<string, any>
-export default class Profile extends Block<ProfileProps> {
-    constructor(props: ProfileProps) {
-        super('div', props);
+class Profile extends Block<ProfileProps> {
+    constructor(tagName: string ,props: ProfileProps) {
+        super(tagName, props);
+
+        store.on(StoreEvents.Updated, () => {
+            this.setProps(store.getState());
+        });
     }
 
     addAttribute() {
         const {
-            attr = {
-                class: 'profilePage-box'
-            }
+            attr
         } = this.props;
         const _attr = attr as Record<string, any>;
 
@@ -27,4 +31,9 @@ export default class Profile extends Block<ProfileProps> {
         return this.compile(profileTpl, this.props);
     }
 }
-
+//export default  Profile
+export default Connect (
+    Profile,
+// @ts-ignore
+    state => state.data ?? {}
+)

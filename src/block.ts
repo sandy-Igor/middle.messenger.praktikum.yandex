@@ -106,15 +106,10 @@ export default class Block<T> {
     }
 
     private _componentDidMount(): void {
-        this.componentDidMount();
 
         Object.values(this.children).forEach(child => {
                 child.dispatchComponentDidMount();
             });
-    }
-
-    public componentDidMount(): void {
-
     }
 
     public dispatchComponentDidMount(): void {
@@ -225,6 +220,14 @@ export default class Block<T> {
 
     private _createDocumentElement(tagName: string): HTMLElement {
         return document.createElement(tagName);
+    }
+
+    public show() {
+        this.getContent().style.display = 'block';
+    }
+
+    public hide() {
+        this.getContent().style.display = 'none';
     }
 }
 

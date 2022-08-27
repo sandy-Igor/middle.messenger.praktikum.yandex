@@ -2,13 +2,14 @@ import labelInput from './inputLabel.hbs';
 import './inputLabel.scss';
 import Block from '../../block';
 
-type InputLabelProps = {
-    label: string
-    inputType: string
-    inputId: string
+export type InputLabelProps = {
+    label?: string
+    inputType?: string
+    inputId?: string
+    inputValue?: string
     inputName?: string
     disabled?: string
-    events: Record<string, Function>
+    events?: Record<string, Function>
     attr?: Record<string, string>
 }
 export default class InputLabel extends Block<InputLabelProps> {

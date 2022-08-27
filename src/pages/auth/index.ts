@@ -2,18 +2,15 @@ import AuthPage from './auth';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
+import { router } from '../../router/router';
+import { AuthApi, Signin } from '../../api/auth-api';
 
 const goButton = new Button(
     'div',
     {
         buttonType: 'button-ready',
         btnValue: 'Sign in',
-        events:
-            {
-                click: () => {
-                    console.log('asdasfwefwe');
-                }
-            }
+        events: {}
     });
 const altBtn = new Button(
     'div',
@@ -23,17 +20,17 @@ const altBtn = new Button(
         events: {
             click: (e: Event) => {
                 e.preventDefault();
-                console.log('asdasdasacqcw');
+                router.go('/register');
             }
         }
     });
 
-const inputLogin = new Input(
+const login = new Input(
     'li',
     {
         inputType: 'text',
         inputPlaceholder: 'login',
-        inputName: 'inputLogin',
+        inputName: 'login',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -42,12 +39,12 @@ const inputLogin = new Input(
         }
     });
 
-const inputPassword = new Input(
+const password = new Input(
     'li',
     {
         inputType: 'password',
         inputPlaceholder: 'password',
-        inputName: 'inputPassword',
+        inputName: 'password',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -61,15 +58,29 @@ const data = {
     footerTitle: 'Authorization',
     goButton,
     altBtn,
-    inputLogin,
-    inputPassword,
+    login,
+    password,
     events: {
         submit: (e: Event) => {
-            formSubmitEvent(e, data);
+            const formData = formSubmitEvent(e, data);
+            const auth = new AuthApi();
+            auth.signin(formData as Signin)
+                .then(res => {
+                    console.log(res);
+                    return res;
+                })
+                .then(() => {
+                   auth.getUser()
+                        .then(r => r)
+                        .then(data => {
+                            console.log('user', data);
+                        });
+                })
         }
     }
 };
-const auth = new AuthPage(data);
+    const auth = new AuthPage(data);
 
-export default auth;
+    export
+    default auth;
 

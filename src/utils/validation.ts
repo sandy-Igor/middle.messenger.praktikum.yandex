@@ -16,7 +16,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
         });
         return false;
     }
-    if (name === 'inputName' || name === 'inputScdName') {
+    if (name === 'first_name' || name === 'second_name') {
         if (!nameValidation(value)) {
             props[name].setProps({
                 inputClass: 'error',
@@ -26,7 +26,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
             return false;
         }
     }
-    if (name === 'inputLogin') {
+    if (name === 'login') {
         if (!nameValidation(value, 6, 20)) {
             props[name].setProps({
                 inputClass: 'error',
@@ -37,7 +37,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
         }
     }
 
-    if (name === 'inputPassword' || name === 'inputPasswordScd') {
+    if (name === 'password' || name === 'passwordScd' || name === 'newPassword') {
         if (!passValidation(value, 8, 40)) {
             props[name].setProps({
                 inputClass: 'error',
@@ -48,7 +48,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
         }
     }
 
-    if (name === 'inputMail') {
+    if (name === 'email') {
         if (!mailValidation(value)) {
             props[name].setProps({
                 inputClass: 'error',
@@ -59,7 +59,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
         }
     }
 
-    if (name === 'inputPhone') {
+    if (name === 'phone') {
         if (!phoneValidation(value)) {
             props[name].setProps({
                 inputClass: 'error',
@@ -69,7 +69,8 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
             return false;
         }
     }
-    const passwords = Array.from(document.querySelectorAll('input[name=inputPassword], input[name=inputPasswordScd]'));
+    const form = field.closest('form') as HTMLFormElement
+    const passwords = form?.querySelectorAll('input[name=password], input[name=inputPasswordScd]');
     if (passwords.length > 1 && field === passwords[passwords.length - 1]) {
         if (!passwordsEqualValidation((passwords[passwords.length - 2] as HTMLInputElement).value, (passwords[passwords.length - 1] as HTMLInputElement).value)) {
             props[name].setProps({
@@ -95,7 +96,7 @@ function mailValidation(email: string): boolean {
 }
 
 function nameValidation(name: string, min: number = 0, max: number = 40): boolean {
-    const re: RegExp = /^[a-zA-Z]+$/;
+    const re: RegExp = /^[a-zA-Z-._]+$/;
     return re.test(name) && name.length >= min && name.length <= max;
 }
 

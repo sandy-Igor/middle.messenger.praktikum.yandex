@@ -2,7 +2,7 @@ import Block from '../../block';
 import auth from '../../components/authRegForm/authReg.hbs';
 import '../../components/authRegForm/authReg.scss';
 
-type AuthPageProps = Record<string, any>
+export type AuthPageProps = Record<string, any>
 
 export default class AuthPage extends Block<AuthPageProps> {
     constructor(props: AuthPageProps) {

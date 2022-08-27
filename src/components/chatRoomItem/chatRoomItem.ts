@@ -19,6 +19,7 @@ export default class ChatRoomItem extends Block<ChatRoomItemProps> {
 
     addEvents() {
         this.element?.addEventListener('click', this.props.events.click);
+        this.element?.querySelector('.footer-chat-options')?.addEventListener('click', this.props.events.optClick)
     }
 
     addAttribute() {

@@ -1,0 +1,40 @@
+.box-avatar-changer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  max-height: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+.box-avatar-changer input {
+  display: none;
+}
+.box-avatar-changer:hover span {
+  opacity: 100%;
+  transition: 1s;
+}
+.box-avatar-changer:hover img {
+  opacity: 80%;
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+.box-avatar-changer img {
+  width: inherit;
+  height: inherit;
+  border: 1px solid #1A6CF1;
+  border-radius: 50%;
+}
+.box-avatar-changer .avatarChanger {
+  display: block;
+  position: absolute;
+  word-wrap: break-word;
+  top: 120px;
+  font-size: 7px;
+  width: 30px;
+  text-align: center;
+  transform: translate(0px, -100px);
+  opacity: 0;
+}
+
+/*# sourceMappingURL=avatar.css.map */
