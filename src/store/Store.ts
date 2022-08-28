@@ -1,5 +1,5 @@
-import EventBus from "../event-bus";
-import set, { Indexed } from "../utils/set";
+import EventBus from '../event-bus';
+import set, { Indexed } from '../utils/set';
 
 export enum StoreEvents {
     Updated = 'updated',
@@ -15,7 +15,11 @@ class Store extends EventBus {
     public set(path: string, value: unknown) {
         set(this.state, path, value);
         this.emit(StoreEvents.Updated);
-    };
+    }
 }
 
-export default new Store()
+const store = new Store();
+
+// @ts-ignore
+window._store = store;
+export default store;

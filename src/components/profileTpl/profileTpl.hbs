@@ -6,11 +6,9 @@
         <div class="box-profile-footer">
             {{{avatar}}}
         </div>
-        <form>
+        <form id="profile-data">
             <ul class="profile-form-wrapper">
                 {{#if profile}}
-                    {{{inputPhone}}}
-
                     {{{email}}}
                     {{{login}}}
                     {{{first_name}}}
@@ -19,7 +17,6 @@
                     {{{display_name}}}
                     {{{password}}}
                     {{{passwordScd}}}
-
                 {{else}}
                     {{{oldPassword}}}
                     {{{newPassword}}}

@@ -7,7 +7,6 @@ export function merge(lhs: Indexed, rhs: Indexed): Indexed {
         if (!rhs.hasOwnProperty(p)) {
             continue;
         }
-
         try {
             if (rhs[p] === typeof Object) {
                 rhs[p] = merge(lhs[p] as Indexed, rhs[p] as Indexed);
@@ -18,17 +17,12 @@ export function merge(lhs: Indexed, rhs: Indexed): Indexed {
             lhs[p] = rhs[p];
         }
     }
-
     return lhs;
 }
 
 function set(object: Indexed | unknown, path: string, value: unknown): Indexed | unknown {
     if (typeof object !== 'object' || object === null) {
         return object;
-    }
-
-    if (typeof path !== 'string') {
-        throw new Error('path must be string');
     }
 
     const result = path.split('.').reduceRight<Indexed>((acc, key) => ({

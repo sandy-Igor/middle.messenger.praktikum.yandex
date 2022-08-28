@@ -10,17 +10,13 @@ type ChangeProfileProps = Record<string, any>
 class ChangeProfile extends Block<ChangeProfileProps> {
     constructor(tagName: string, props: ChangeProfileProps) {
         super(tagName, props);
-
         store.on(StoreEvents.Updated, () => {
             this.setProps(store.getState());
         });
     }
 
     addEvents() {
-        this.element.querySelectorAll('form')
-            .forEach(form => {
-                form.addEventListener('submit', this.props.events.submit);
-            });
+        this.element.querySelector('#profile-data')?.addEventListener('submit', this.props.events.submit);
     }
 
     addAttribute() {
@@ -46,6 +42,6 @@ export default Connect(
     ChangeProfile,
 // @ts-ignore
     state => {
-        return state.form ?? {};
+        return state.inputLabel ?? {};
     }
 );

@@ -7,7 +7,7 @@ import { router } from '../../router/router';
 import { AuthApi } from '../../api/auth-api';
 import { Props } from '../../block';
 import Avatar from '../../components/avatar/avatar';
-import store from '../../store/Store';
+// import userController from '../../controllers/userController';
 
 const userData = new AuthApi();
 userData.getUser()
@@ -22,14 +22,14 @@ userData.getUser()
             .forEach(([key, val]) => {
                 if (data.hasOwnProperty(key)) {
                     if(data[key] instanceof Avatar) {
-                        data[key].setProps({ inputValue: `https://ya-praktikum.tech/api/v2/resources${val}` })
+                        data[key].setProps({ srcAvatar: `https://ya-praktikum.tech/api/v2/resources${val}` })
                     } else {
                         data[key].setProps({ inputValue: val });
                     }
                 }
             });
     });
-
+// userController.getUser()
 const arrowButton = new ArrowButton(
     'div',
     {
@@ -37,7 +37,6 @@ const arrowButton = new ArrowButton(
             click: (e: Event) => {
                 e.preventDefault();
                 router.back();
-                console.log(store.getState());
             }
         }
     }
@@ -46,7 +45,7 @@ const arrowButton = new ArrowButton(
 const avatar = new Avatar(
     'label',
     {
-        inputValue: avatarIcon,
+        srcAvatar: avatarIcon,
         disabled: 'disabled',
         events: {
 
@@ -100,7 +99,7 @@ const exit = new Span(
 );
 
 const email = new InputLabel(
-    'li',
+    // 'li',
     {
         inputValue: '',
         label: 'Mail',
@@ -113,7 +112,7 @@ const email = new InputLabel(
 );
 
 const login = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'Login',
         inputType: 'text',
@@ -125,7 +124,7 @@ const login = new InputLabel(
 );
 
 const first_name = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'Name',
         inputType: 'text',
@@ -137,7 +136,7 @@ const first_name = new InputLabel(
 );
 
 const second_name = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'Surname',
         inputType: 'text',
@@ -149,7 +148,7 @@ const second_name = new InputLabel(
 );
 
 const display_name = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'Chat name',
         inputType: 'text',
@@ -161,12 +160,13 @@ const display_name = new InputLabel(
 );
 
 const phone = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'Phone',
         inputType: 'text',
         inputId: '+7-909-09-09-090',
         inputName: 'phone',
+        inputValue: '',
         disabled: 'disabled',
         events: {}
     }

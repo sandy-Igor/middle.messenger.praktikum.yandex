@@ -164,7 +164,6 @@ export default class Block<T> {
             children,
             props
         } = this._getChildren(nextProps) as Record<string, any>;
-
         if (Object.values(children).length > 0) {
             Object.assign(this.children, children);
         }
@@ -197,6 +196,7 @@ export default class Block<T> {
     }
 
     private _makePropsProxy(props: Props): Props {
+
         const handler = {
             get: (target: Props, prop: string): unknown => {
                 const value = target[prop];

@@ -20,7 +20,7 @@ const arrowButton = new ArrowButton(
 );
 
 const oldPassword = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'previous password',
         inputType: 'password',
@@ -36,7 +36,7 @@ const oldPassword = new InputLabel(
 );
 
 const newPassword = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'new password',
         inputType: 'password',
@@ -52,7 +52,7 @@ const newPassword = new InputLabel(
 );
 
 const passwordScd = new InputLabel(
-    'li',
+    // 'li',
     {
         label: 'repeat password',
         inputType: 'password',

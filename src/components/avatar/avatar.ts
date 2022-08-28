@@ -1,9 +1,10 @@
 import Block from '../../block';
 import './avatar.scss';
 import avatar from './avatar.hbs';
+import store, { StoreEvents } from '../../store/Store';
 
 type AvatarProps = {
-    inputValue: string;
+    srcAvatar?: string;
     events?: Record<string, Function>;
     disabled?: string;
 }
@@ -12,6 +13,9 @@ export default class Avatar extends Block<AvatarProps> {
 
     constructor(tagName: string, props: AvatarProps) {
         super(tagName, props);
+        store.on(StoreEvents.Updated, () => {
+            return this.setProps(store.getState());
+        });
     }
 
     addEvents() {

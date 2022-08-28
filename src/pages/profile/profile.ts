@@ -31,9 +31,11 @@ class Profile extends Block<ProfileProps> {
         return this.compile(profileTpl, this.props);
     }
 }
-//export default  Profile
+
 export default Connect (
     Profile,
 // @ts-ignore
-    state => state.data ?? {}
+    state => {
+        return state.inputLabel ?? {};
+    }
 )

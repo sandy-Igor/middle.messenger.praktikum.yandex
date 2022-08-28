@@ -8,22 +8,41 @@ const userApi = new UserApi();
 class UserController {
     public getUser() {
         user.getUser()
-            .then(data => store.set('user', data));
+            .then(r => {
+                return r as XMLHttpRequest;
+            })
+            .then(data => {
+                return (JSON.parse(data.response as string))
+            })
+            .then(data => {
+                store.set('srcAvatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`);
+                store.set('inputValue', { ...data });
+            });
     }
 
     public changeProfile(data: ChangeUser) {
-        return userApi.changeProfile(data).then((data) => {
-            store.set('user', data);
-            store.set('user.avatar', (data as ChangeAvatar).avatar);
-        });
+        return userApi.changeProfile(data)
+            .then(r => {
+                return r as XMLHttpRequest;
+            })
+            .then(data => {
+                return (JSON.parse(data.response as string))
+            })
+            .then((data) => {
+                store.set(`inputValue`, data);
+            });
     }
 
     public changeAvatar(data: HTMLFormElement) {
         const formData = new FormData(data);
         return userApi.changeAvatar(formData as unknown as ChangeAvatar)
-            .then(data => store.set('user.avatar', (data as ChangeAvatar).avatar));
-
+            .then(r => {
+                return r as XMLHttpRequest;
+            })
+            .then(data => {
+                return JSON.parse(data.response as string)
+            })
+            .then(data => store.set('srcAvatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`));
     }
 }
-
-export default new UserController()
+export default new UserController();

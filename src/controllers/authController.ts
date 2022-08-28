@@ -1,11 +1,11 @@
 
 
 
-class AuthController {
-
-    public singin(data) {
-        
-    }
-
-
-}
+// class AuthController {
+//
+//     public singin(data) {
+//
+//     }
+//
+//
+// }
