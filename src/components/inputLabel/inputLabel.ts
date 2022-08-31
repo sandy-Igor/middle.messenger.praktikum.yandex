@@ -1,8 +1,6 @@
 import labelInput from './inputLabel.hbs';
 import './inputLabel.scss';
 import Block from '../../block';
-import store, { StoreEvents } from '../../store/Store';
-import Connect from '../../store/Connect';
 
 export type InputLabelProps = {
     label?: string
@@ -14,20 +12,18 @@ export type InputLabelProps = {
     events?: Record<string, Function>
     attr?: Record<string, string>
 }
- class InputLabel extends Block<InputLabelProps> {
+export default class InputLabel extends Block<InputLabelProps> {
 
     constructor(tagName: string, props: InputLabelProps) {
         super(tagName, props);
-        store.on(StoreEvents.Updated, () => {
-            return this.setProps(store.getState());
-        });
+
     }
 
     addEvents() {
         this.element.querySelectorAll('input')
             .forEach(inp => {
-                inp.addEventListener('blur', this.props.events.blur);
-                inp.addEventListener('focus', this.props.events.focus);
+                    inp.addEventListener('blur', this.props.events.blur);
+                    inp.addEventListener('focus', this.props.events.focus);
             });
     }
 
@@ -51,9 +47,3 @@ export type InputLabelProps = {
         return this.compile(labelInput, this.props);
     }
 }
-
-export default Connect(
-    InputLabel,
-// @ts-ignore
-    state => state.inputValue ?? {}
-)

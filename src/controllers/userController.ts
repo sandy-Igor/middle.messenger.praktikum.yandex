@@ -16,7 +16,7 @@ class UserController {
             })
             .then(data => {
                 store.set('srcAvatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`);
-                store.set('inputValue', { ...data });
+                store.set(`user`, data);
             });
     }
 
@@ -29,7 +29,7 @@ class UserController {
                 return (JSON.parse(data.response as string))
             })
             .then((data) => {
-                store.set(`inputValue`, data);
+                store.set(`user`, data);
             });
     }
 

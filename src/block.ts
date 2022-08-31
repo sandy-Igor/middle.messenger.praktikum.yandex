@@ -20,8 +20,8 @@ export default class Block<T> {
 
     public element: HTMLElement;
     public props: Props;
+    public children: Children;
     private readonly _id: string | null = null;
-    private readonly children: Children;
     private readonly eventBus: EventBus;
     private readonly tagName: string;
     private _setUpdate = false;
