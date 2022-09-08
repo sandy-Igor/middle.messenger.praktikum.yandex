@@ -199,19 +199,3 @@ export default Connect(
             user: {}
         };
     })
-
-//             (state.user as Indexed) ?? {}
-//
-//
-// state => {
-//     return 'chats' in state ? {
-//         chats: state.chats,
-//         activeChat: state.activeChat,
-//         usersInActiveChat: state.usersInActiveChat
-//     } : {
-//         chats: {},
-//         activeChat: {},
-//         usersInActiveChat: {}
-//     };
-// }
-// )

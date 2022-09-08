@@ -8,7 +8,7 @@ import ArrowButton from '../../components/arrowButton/arrowButton';
 import { router } from '../../router/router';
 import Avatar from '../../components/avatar/avatar';
 import avatarImage from '../../../static/images/avatar-png-icon.png';
-import userController from '../../controllers/userController';
+import UserController from '../../controllers/userController';
 import Button from '../../components/button/button';
 import { ChangeUser } from '../../api/user-api';
 import changeProfilePage from './index';
@@ -39,7 +39,7 @@ class ChangeProfile extends Block<ChangeProfileProps> {
                     submit: (e: Event) => {
                         e.preventDefault();
                         const form = this.element.querySelector('form');
-                        userController.changeAvatar(form as HTMLFormElement);
+                        UserController.changeAvatar(form as HTMLFormElement);
                     },
                     change: () => {
                         (this.element.querySelector('input[type=submit]') as HTMLElement).click();
@@ -159,8 +159,6 @@ class ChangeProfile extends Block<ChangeProfileProps> {
         );
         super(tagName, props);
         this.initChilds()
-
-
     }
 
     setProps(nextProps: ChangeProfileProps) {
@@ -182,7 +180,7 @@ class ChangeProfile extends Block<ChangeProfileProps> {
         this.element.querySelector('#profile-data')
             ?.addEventListener('submit', (e: Event) => {
                 const data = formSubmitEvent(e, changeProfilePage.children);
-                userController.changeProfile(data as ChangeUser);
+               if(data) UserController.changeProfile(data as ChangeUser);
             });
     }
 
@@ -215,6 +213,4 @@ export default Connect(
             user: {}
         };
     })
-
-        // state => (state.user as Indexed) ?? {}
 

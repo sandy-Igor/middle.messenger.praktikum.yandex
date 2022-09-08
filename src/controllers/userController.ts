@@ -19,7 +19,6 @@ class UserController {
             .then(data => {
                 store.set(`user`, data);
                 if (data.avatar) {
-                    console.log(data);
                     store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`);
                 } else {
                     store.set('user.avatar', avatarImage);
