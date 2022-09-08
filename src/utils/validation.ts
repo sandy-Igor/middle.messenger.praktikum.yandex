@@ -9,6 +9,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
     if (!name || undefined) return;
     const re: RegExp = /^\s*$/;
     if (re.test(value)) {
+        console.log(props[name]);
         props[name].setProps({
             inputClass: classList + ' error',
             inputValue: value,
@@ -70,7 +71,7 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
         }
     }
     const form = field.closest('form') as HTMLFormElement
-    const passwords = form?.querySelectorAll('input[name=password], input[name=inputPasswordScd]');
+    const passwords = form?.querySelectorAll('input[name=password], input[name=newPassword], input[name=passwordScd]');
     if (passwords.length > 1 && field === passwords[passwords.length - 1]) {
         if (!passwordsEqualValidation((passwords[passwords.length - 2] as HTMLInputElement).value, (passwords[passwords.length - 1] as HTMLInputElement).value)) {
             props[name].setProps({

@@ -2,9 +2,11 @@ import Button from '../../components/button/button';
 import RegisterPage from './register';
 import Input from '../../components/input/input';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
-// @ts-ignore
 import { router } from '../../router/router';
-import { AuthApi, Signup } from '../../api/auth-api';
+import { Signup } from '../../api/auth-api';
+import AuthController from '../../controllers/authController';
+import UserController from '../../controllers/userController';
+import ChatController from '../../controllers/chatController'
 
 const goButton = new Button(
     'div',
@@ -151,23 +153,14 @@ const data = {
     events: {
         submit: (e: Event) => {
             const formData = formSubmitEvent(e, data);
-            const auth = new AuthApi();
-            auth.signup(formData as Signup)
-                .then(res => {
-                    console.log(res);
-                    return res;
+            AuthController.signup(formData as Signup)
+                .then(() => {
+                    UserController.getUser();
+
                 })
                 .then(() => {
-                    auth.getUser()
-                        .then(r => r)
-                        .then(data => {
-                            console.log('user', data);
-                        });
+                    ChatController.getChats();
                 })
-
-            setTimeout(() => {
-                auth.logout().then(res => console.log(res))
-            }, 3000)
         }
     }
 };

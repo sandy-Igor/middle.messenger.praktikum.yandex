@@ -13,22 +13,19 @@ export function merge(lhs: Indexed, rhs: Indexed): Indexed {
             } else {
                 lhs[p] = rhs[p];
             }
-        } catch(e) {
+        } catch (e) {
             lhs[p] = rhs[p];
         }
     }
     return lhs;
 }
 
-function set(object: Indexed | unknown, path: string, value: unknown): Indexed | unknown {
-    if (typeof object !== 'object' || object === null) {
-        return object;
-    }
+const set = (obj: unknown, path: string, val: unknown) => {
+    const keys = path.split(".");
+    const lastKey = keys.pop();
+    const lastObj = keys.reduce((obj: any, key) => obj[key] = obj[key] || {}, obj);
+    lastObj[(lastKey as string)] = val;
+};
 
-    const result = path.split('.').reduceRight<Indexed>((acc, key) => ({
-        [key]: acc,
-    }), value as any);
-    return merge(object as Indexed, result);
-}
 
-export default set
+export default set;

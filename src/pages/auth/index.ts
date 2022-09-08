@@ -3,7 +3,10 @@ import Button from '../../components/button/button';
 import Input from '../../components/input/input';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
 import { router } from '../../router/router';
-import { AuthApi, Signin } from '../../api/auth-api';
+import { Signin } from '../../api/auth-api';
+import UserController from '../../controllers/userController';
+import AuthController from '../../controllers/authController';
+import ChatController from '../../controllers/chatController';
 
 const goButton = new Button(
     'div',
@@ -63,24 +66,19 @@ const data = {
     events: {
         submit: (e: Event) => {
             const formData = formSubmitEvent(e, data);
-            const auth = new AuthApi();
-            auth.signin(formData as Signin)
-                .then(res => {
-                    console.log(res);
-                    return res;
-                })
+            console.log(formData);
+            if (formData) {
+                console.log('in req');
+            AuthController.singin(formData as Signin)
                 .then(() => {
-                   auth.getUser()
-                        .then(r => r)
-                        .then(data => {
-                            console.log('user', data);
-                        });
-                })
+                    UserController.getUser();
+                    ChatController.getChats();
+                });
+            }
         }
     }
 };
-    const auth = new AuthPage(data);
-
-    export
-    default auth;
+const auth = new AuthPage(data);
+UserController.getUser();
+export default auth;
 

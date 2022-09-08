@@ -26,7 +26,7 @@ export default class Block<T> {
     private readonly tagName: string;
     private _setUpdate = false;
 
-    constructor(tagName: string = 'div', propsAndChildren: T) {
+    constructor(tagName: string = 'div', propsAndChildren: T ) {
         const {
             children,
             props
@@ -152,7 +152,7 @@ export default class Block<T> {
             });
     }
 
-    public setProps = (nextProps: T) => {
+    public setProps (nextProps: T) {
         if (!nextProps) {
             return;
         }

@@ -5,7 +5,6 @@ type ChangePasswordProps = Record<string, any>
 export default class ChangePassword extends Block<ChangePasswordProps> {
     constructor(props: ChangePasswordProps) {
         super('div', props);
-
     }
 
     addEvents() {

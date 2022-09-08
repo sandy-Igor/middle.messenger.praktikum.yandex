@@ -1,11 +1,11 @@
-import avatarIcon from '../../../static/images/avatar-png-icon.png';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import InputLabel from '../../components/inputLabel/inputLabel';
 import Button from '../../components/button/button';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
 import { router } from '../../router/router';
-import { ChangePass, UserApi } from '../../api/user-api';
+import UserController from '../../controllers/userController';
 import ChangePassword from './changePassword';
+import { ChangePass } from '../../api/user-api';
 
 const arrowButton = new ArrowButton(
     'div',
@@ -84,7 +84,6 @@ const buttonSave = new Button(
 );
 
 const data = {
-    avatarIcon,
     arrowButton,
     profile: false,
     oldPassword,
@@ -95,8 +94,10 @@ const data = {
     events: {
         submit: (e: Event) => {
             const formData = formSubmitEvent(e, data);
-            const userApi = new UserApi();
-            userApi.changePassword(formData as ChangePass).then(data => console.log(data))
+            if(formData) {
+                console.log('after valid');
+                UserController.changePassword(formData as ChangePass);
+            }
         }
     }
 };

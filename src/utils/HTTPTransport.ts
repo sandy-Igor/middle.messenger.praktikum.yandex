@@ -50,7 +50,7 @@ export default class HTTPTransport {
         }, options.timeout);
     };
 
-    request = async (url: string, options: Options, timeout = 5000) => {
+    request = async (url: string, options: Options = {method: Methods.GET}, timeout = 5000) => {
         const {
             headers = {},
             method,

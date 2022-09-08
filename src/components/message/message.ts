@@ -2,13 +2,25 @@ import message from './message.hbs';
 import './message.scss';
 import Block from '../../block';
 
-type MessageProps = {
+
+export type MessagePropsInArray = {
     image?: boolean
-    imgSource?: File
-    messageTime: string
-    messageContent?: string
-    events: Record<string, Function>
-    attr?: Record<string, string>
+    id?: number
+    messageTime?: string
+    messageDate?: string
+    time: string
+    content?: string
+    sentMsg?: string
+    chat_id?: string
+    user_id?: number
+    is_read?: boolean
+    file?: File | null
+    type?: string
+}
+type MessageProps = {
+    messages?: Array<MessagePropsInArray>
+    events?: Record<string, Function>
+    attr?: Record<string, any>
 }
 export default class Message extends Block<MessageProps> {
     constructor(tagName: string, props: MessageProps) {
@@ -16,13 +28,14 @@ export default class Message extends Block<MessageProps> {
     }
 
     addEvents() {
-        this.element.querySelector('span')
-            ?.addEventListener('click', this.props.events.click);
+        this.element.querySelectorAll('span').forEach(spn => {
+            spn.addEventListener('click', this.props.events.click);
+        })
     }
 
     addAttribute() {
         const {
-            attr = { class: 'message-item' }
+            attr
         } = this.props;
         const _attr = attr as Record<string, any>;
         if (attr) {

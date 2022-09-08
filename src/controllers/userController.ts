@@ -1,23 +1,34 @@
 import { AuthApi } from '../api/auth-api';
 import store from '../store/Store';
-import { ChangeAvatar, ChangeUser, UserApi } from '../api/user-api';
+import { ChangeAvatar, ChangePass, ChangeUser, UserApi } from '../api/user-api';
+import avatarImage from '../../static/images/avatar-png-icon.png';
+import { router } from '../router/router';
 
 const user = new AuthApi();
 const userApi = new UserApi();
 
 class UserController {
     public getUser() {
-        user.getUser()
-            .then(r => {
-                return r as XMLHttpRequest;
+        return user.getUser()
+            .then((r: XMLHttpRequest) => {
+                if(r.status === 200 && document.location.pathname !== '/chatPage') {
+                    router.go('/chatPage');
+                }
+                return JSON.parse(r?.response as string)
             })
             .then(data => {
-                return (JSON.parse(data.response as string))
-            })
-            .then(data => {
-                store.set('srcAvatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`);
                 store.set(`user`, data);
-            });
+                if (data.avatar) {
+                    console.log(data);
+                    store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`);
+                } else {
+                    store.set('user.avatar', avatarImage);
+                }
+                return data;
+            })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     public changeProfile(data: ChangeUser) {
@@ -26,10 +37,15 @@ class UserController {
                 return r as XMLHttpRequest;
             })
             .then(data => {
-                return (JSON.parse(data.response as string))
+                return (JSON.parse(data.response as string));
             })
             .then((data) => {
                 store.set(`user`, data);
+                if (data.avatar) {
+                    store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`);
+                } else {
+                    store.set('user.avatar', avatarImage);
+                }
             });
     }
 
@@ -40,9 +56,16 @@ class UserController {
                 return r as XMLHttpRequest;
             })
             .then(data => {
-                return JSON.parse(data.response as string)
+                return JSON.parse(data.response as string);
             })
-            .then(data => store.set('srcAvatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`));
+            .then(data => store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`));
+    }
+
+    public changePassword (data: ChangePass) {
+        return userApi.changePassword(data)
     }
 }
+
 export default new UserController();
+
+

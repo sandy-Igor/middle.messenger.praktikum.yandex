@@ -1,22 +1,24 @@
 import profileTpl from '../../components/profileTpl/profileTpl.hbs';
 import '../../components/profileTpl/profileTpl.scss';
-import Block, { Props } from '../../block';
+import Block from '../../block';
 import Connect from '../../store/Connect';
 import InputLabel from '../../components/inputLabel/inputLabel';
-import { inputBlur, inputFocus } from '../../utils/events';
-import { AuthApi } from '../../api/auth-api';
+import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import { router } from '../../router/router';
 import Avatar from '../../components/avatar/avatar';
 import avatarImage from '../../../static/images/avatar-png-icon.png';
 import userController from '../../controllers/userController';
 import Button from '../../components/button/button';
-import { isEqual } from '../../utils/isEqual';
+import { ChangeUser } from '../../api/user-api';
+import changeProfilePage from './index';
 
 type ChangeProfileProps = Record<string, any>
 
 class ChangeProfile extends Block<ChangeProfileProps> {
     constructor(tagName: string, props: ChangeProfileProps) {
+        props.profile = true;
+        props.buttons = true;
         props.arrowButton = new ArrowButton(
             'div',
             {
@@ -61,15 +63,13 @@ class ChangeProfile extends Block<ChangeProfileProps> {
                 }
             }
         );
-
-        props.input_login = new InputLabel(
+        props.login = new InputLabel(
             'li',
             {
                 label: 'Login',
                 inputType: 'text',
                 inputId: 'Sith',
                 inputName: 'login',
-                inputValue: props.login,
                 events: {
                     focus: inputFocus,
                     blur: (e: Event) => {
@@ -101,7 +101,6 @@ class ChangeProfile extends Block<ChangeProfileProps> {
                 inputType: 'text',
                 inputId: 'Vader',
                 inputName: 'second_name',
-                inputValue: props.second_name,
                 events: {
                     focus: inputFocus,
                     blur: (e: Event) => {
@@ -133,7 +132,6 @@ class ChangeProfile extends Block<ChangeProfileProps> {
                 inputType: 'text',
                 inputId: '+7-909-09-09-090',
                 inputName: 'phone',
-                inputValue: '',
                 events: {
                     focus: inputFocus,
                     blur: (e: Event) => {
@@ -160,31 +158,32 @@ class ChangeProfile extends Block<ChangeProfileProps> {
             }
         );
         super(tagName, props);
+        this.initChilds()
 
-        // const userData = new AuthApi();
-        // userData.getUser()
-        //     .then(r => {
-        //         return r as XMLHttpRequest;
-        //     })
-        //     .then(data => {
-        //         return (JSON.parse(data.response as string));
-        //     })
-        //     .then(val => {
-        //         console.log(val);
-        //         Object.entries(val).forEach(([key, value]) => {
-        //             if (props.hasOwnProperty(key)) {
-        //                 props[key].setProps({ inputValue: value })
-        //             }
-        //
-        //         })
-        //     });
-        this.props.input_login.setProps({ inputValue: this.props.user?.login });
-        window._props = props;
+
+    }
+
+    setProps(nextProps: ChangeProfileProps) {
+        super.setProps(nextProps);
+        this.initChilds()
+    }
+
+    initChilds() {
+        this.children.avatar.setProps({ srcAvatar: this.props.user.avatar });
+        this.children.email.setProps({ inputValue: this.props.user.email });
+        this.children.login.setProps({ inputValue: this.props.user.login });
+        this.children.first_name.setProps({ inputValue: this.props.user.first_name });
+        this.children.second_name.setProps({ inputValue: this.props.user.second_name });
+        this.children.display_name.setProps({ inputValue: this.props.user.display_name });
+        this.children.phone.setProps({ inputValue: this.props.user.phone });
     }
 
     addEvents() {
         this.element.querySelector('#profile-data')
-            ?.addEventListener('submit', this.props.events.submit);
+            ?.addEventListener('submit', (e: Event) => {
+                const data = formSubmitEvent(e, changeProfilePage.children);
+                userController.changeProfile(data as ChangeUser);
+            });
     }
 
     addAttribute() {
@@ -202,14 +201,20 @@ class ChangeProfile extends Block<ChangeProfileProps> {
     }
 
     render() {
+
         return this.compile(profileTpl, this.props);
     }
 }
 
 export default Connect(
     ChangeProfile,
-// @ts-ignore
     state => {
-        return state.user ?? {};
-    }
-);
+        return 'user' in state ? {
+            user: state.user
+        } : {
+            user: {}
+        };
+    })
+
+        // state => (state.user as Indexed) ?? {}
+

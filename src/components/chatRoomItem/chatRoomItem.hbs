@@ -1,26 +1,34 @@
-<div class="room-box-content">
-    <div class="room-avatar">
-        <img src="{{avatarImage}}" alt="#">
-    </div>
-    <div class="room-chat-info">
-        <div class="chatName">
-            <span>{{chatName}}</span>
+{{#each chat}}
+    <li class="chat-list-element">
+        <div class="room-box {{selected}}">
+            <div class="room-box-content">
+                <div class="room-avatar">
+                    <img src="{{avatar}}" alt="#">
+                </div>
+                <div class="room-chat-info">
+                    <div class="chatName">
+                        <span>{{title}}</span>
+                    </div>
+                    {{#if last_message}}
+                        <div class="lastMsg">
+                            {{#if userMsg}}
+                                <span class="userMsg">You:</span>
+                            {{/if}}
+                            <span>{{last_message.content}}</span>
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="room-adds-box">
+                {{#if last_message.messageTime}}
+                    <div class="dateMsg">{{last_message.messageTime}}</div>
+                {{/if}}
+                {{#if unread_count}}
+                    <div class="newMsg">{{unread_count}}</div>
+                {{/if}}
+
+            </div>
         </div>
-        <div class="lastMsg">
-            {{#if userMsg}}
-                <span class="userMsg">You:</span>
-            {{/if}}
-            <span>{{lastMsg}}</span>
-        </div>
-    </div>
-</div>
-<div class="room-adds-box">
-    {{#if dateMsg}}
-        <div class="dateMsg">{{dateMsg}}</div>
-        {{#if newMsg}}
-            <div class="newMsg">{{newMsg}}</div>
-        {{/if}}
-    {{else}}
-        <div class="footer-chat-options"></div>
-    {{/if}}
-</div>
+    </li>
+{{/each}}
+

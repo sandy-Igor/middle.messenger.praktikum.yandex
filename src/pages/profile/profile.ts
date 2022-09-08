@@ -8,13 +8,12 @@ import Span from '../../components/span/span';
 import Connect from '../../store/Connect';
 import { router } from '../../router/router';
 import { AuthApi } from '../../api/auth-api';
-import UserController from '../../controllers/userController'
-import store, { StoreEvents } from '../../store/Store';
 
 export type ProfileProps = Record<string, any>
+
 class Profile extends Block<ProfileProps> {
     constructor(tagName: string, props: ProfileProps) {
-        props.profile = true
+        props.profile = true;
         props.arrowButton = new ArrowButton(
             'div',
             {
@@ -31,9 +30,8 @@ class Profile extends Block<ProfileProps> {
             'label',
             {
                 srcAvatar: avatarImage,
-                events: {
-
-                }
+                disabled: 'disabled',
+                events: {}
             }
         );
 
@@ -48,19 +46,19 @@ class Profile extends Block<ProfileProps> {
                 events: {}
             }
         );
-        //
-        // props.login = new InputLabel(
-        //     'li',
-        //     {
-        //         label: 'Login',
-        //         inputType: 'text',
-        //         inputId: 'Sith',
-        //         inputName: 'login',
-        //         inputValue: props.login,
-        //         disabled: 'disabled',
-        //         events: {}
-        //     }
-        // );
+
+        props.login = new InputLabel(
+            'li',
+            {
+                label: 'Login',
+                inputType: 'text',
+                inputId: 'Sith',
+                inputName: 'login',
+                inputValue: props.login,
+                disabled: 'disabled',
+                events: {}
+            }
+        );
 
         props.first_name = new InputLabel(
             'li',
@@ -147,7 +145,7 @@ class Profile extends Block<ProfileProps> {
                         e.preventDefault();
                         const auth = new AuthApi();
                         auth.logout()
-                            .then(r => r)
+                            .then(r => r);
                         router.go('/');
                     }
                 }
@@ -155,28 +153,22 @@ class Profile extends Block<ProfileProps> {
         );
 
         super(tagName, props);
-        // const userData = new AuthApi();
-        // userData.getUser()
-        //     .then(r => {
-        //         return r as XMLHttpRequest;
-        //     })
-        //     .then(data => {
-        //         return (JSON.parse(data.response as string));
-        //     })
-        //     .then(val => {
-        //         console.log(val);
-        //         Object.entries(val).forEach(([key, value]) => {
-        //             if (props.hasOwnProperty(key)) {
-        //                 props[key].setProps({ inputValue: value })
-        //             }
-        //
-        //         })
-        //     });
-        UserController.getUser()
-        store.on(StoreEvents.Updated, () => {
-            // вызываем обновление компонента, передав данные из хранилища
-            this.setProps(store.getState());
-        });
+        // this.initChilds();
+    }
+
+    setProps(nextProps: ProfileProps) {
+        super.setProps(nextProps);
+        this.initChilds();
+    }
+
+    initChilds() {
+        this.children.avatar.setProps({ srcAvatar: this.props.user.avatar });
+        this.children.email.setProps({ inputValue: this.props.user.email });
+        this.children.login.setProps({ inputValue: this.props.user.login });
+        this.children.first_name.setProps({ inputValue: this.props.user.first_name });
+        this.children.second_name.setProps({ inputValue: this.props.user.second_name });
+        this.children.display_name.setProps({ inputValue: this.props.user.display_name });
+        this.children.phone.setProps({ inputValue: this.props.user.phone });
     }
 
     addAttribute() {
@@ -198,10 +190,28 @@ class Profile extends Block<ProfileProps> {
     }
 }
 
-export default Connect (
+export default Connect(
     Profile,
-// @ts-ignore
     state => {
-        return state.user ?? {};
-    }
-)
+        return 'user' in state ? {
+            user: state.user
+        } : {
+            user: {}
+        };
+    })
+
+//             (state.user as Indexed) ?? {}
+//
+//
+// state => {
+//     return 'chats' in state ? {
+//         chats: state.chats,
+//         activeChat: state.activeChat,
+//         usersInActiveChat: state.usersInActiveChat
+//     } : {
+//         chats: {},
+//         activeChat: {},
+//         usersInActiveChat: {}
+//     };
+// }
+// )
