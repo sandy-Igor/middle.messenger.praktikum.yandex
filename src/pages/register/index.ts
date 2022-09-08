@@ -156,7 +156,6 @@ const data = {
             AuthController.signup(formData as Signup)
                 .then(() => {
                     UserController.getUser();
-
                 })
                 .then(() => {
                     ChatController.getChats();

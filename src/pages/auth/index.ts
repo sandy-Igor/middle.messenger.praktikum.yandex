@@ -68,7 +68,6 @@ const data = {
             const formData = formSubmitEvent(e, data);
             console.log(formData);
             if (formData) {
-                console.log('in req');
             AuthController.singin(formData as Signin)
                 .then(() => {
                     UserController.getUser();
