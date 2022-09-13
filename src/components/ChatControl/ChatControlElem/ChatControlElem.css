@@ -1,0 +1,56 @@
+@charset "UTF-8";
+.control-container {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28rem;
+  margin: 20vh auto;
+  background: #F7F7F8;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+}
+.control-container .control-code {
+  margin: 20px auto;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 28px;
+}
+.control-container .control-description {
+  margin: 10px auto 30px auto;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+}
+.control-container .button-return {
+  margin: 10px auto 30px auto;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 15px;
+}
+.control-container .cross-elem:after {
+  cursor: pointer;
+  content: "×";
+  float: right;
+}
+.control-container .select-user {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: #F7F7F8;
+  height: 2.5rem;
+  font: 1.125rem/1.3125rem Roboto Regular, sans-serif;
+  padding: 0 10px;
+  border-bottom: 0.0625rem solid #77b8f9;
+}
+
+.display-elem {
+  display: flex;
+}
+
+/*# sourceMappingURL=ChatControlElem.css.map */

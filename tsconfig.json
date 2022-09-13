@@ -8,7 +8,7 @@
     "noUnusedLocals": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": true
   }
 }
 

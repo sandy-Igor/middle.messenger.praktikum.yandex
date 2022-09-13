@@ -2,6 +2,11 @@ import Button from '../../components/button/button';
 import RegisterPage from './register';
 import Input from '../../components/input/input';
 import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
+import { router } from '../../router/router';
+import { Signup } from '../../api/auth-api';
+import AuthController from '../../controllers/authController';
+import UserController from '../../controllers/userController';
+import ChatController from '../../controllers/chatController'
 
 const goButton = new Button(
     'div',
@@ -21,18 +26,19 @@ const altBtn = new Button(
         buttonType: 'button-scd',
         btnValue: 'Have an account? Sign in!',
         events: {
-            click: () => {
-                console.log('to auth');
+            click: (e: Event) => {
+                e.preventDefault()
+                router.go('/')
             }
         }
     });
 
-const inputMail = new Input(
+const email = new Input(
     'li',
     {
         inputType: 'text',
         inputPlaceholder: 'e-mail',
-        inputName: 'inputMail',
+        inputName: 'email',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -42,12 +48,12 @@ const inputMail = new Input(
     }
 );
 
-const inputLogin = new Input(
+const login = new Input(
     'li',
     {
         inputType: 'text',
         inputPlaceholder: 'login',
-        inputName: 'inputLogin',
+        inputName: 'login',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -57,12 +63,12 @@ const inputLogin = new Input(
     }
 );
 
-const inputName = new Input(
+const first_name = new Input(
     'li',
     {
         inputType: 'text',
         inputPlaceholder: 'name',
-        inputName: 'inputName',
+        inputName: 'first_name',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -72,12 +78,12 @@ const inputName = new Input(
     }
 );
 
-const inputScdName = new Input(
+const second_name = new Input(
     'li',
     {
         inputType: 'text',
         inputPlaceholder: 'surname',
-        inputName: 'inputScdName',
+        inputName: 'second_name',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -87,12 +93,12 @@ const inputScdName = new Input(
     }
 );
 
-const inputPhone = new Input(
+const phone = new Input(
     'li',
     {
         inputType: 'tel',
         inputPlaceholder: 'phone',
-        inputName: 'inputPhone',
+        inputName: 'phone',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -102,12 +108,12 @@ const inputPhone = new Input(
     }
 );
 
-const inputPassword = new Input(
+const password = new Input(
     'li',
     {
         inputType: 'password',
         inputPlaceholder: 'password',
-        inputName: 'inputPassword',
+        inputName: 'password',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -117,12 +123,12 @@ const inputPassword = new Input(
     }
 );
 
-const inputPasswordScd = new Input(
+const passwordScd = new Input(
     'li',
     {
         inputType: 'password',
         inputPlaceholder: 'repeat password',
-        inputName: 'inputPasswordScd',
+        inputName: 'passwordScd',
         events: {
             focus: inputFocus,
             blur: (e: Event) => {
@@ -137,16 +143,23 @@ const data = {
     footerTitle: 'Registration',
     goButton,
     altBtn,
-    inputMail,
-    inputLogin,
-    inputName,
-    inputScdName,
-    inputPhone,
-    inputPassword,
-    inputPasswordScd,
+    email,
+    login,
+    first_name,
+    second_name,
+    phone,
+    password,
+    passwordScd,
     events: {
         submit: (e: Event) => {
-            formSubmitEvent(e, data);
+            const formData = formSubmitEvent(e, data);
+            AuthController.signup(formData as Signup)
+                .then(() => {
+                    UserController.getUser();
+                })
+                .then(() => {
+                    ChatController.getChats();
+                })
         }
     }
 };

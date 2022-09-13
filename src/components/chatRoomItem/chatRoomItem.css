@@ -1,0 +1,99 @@
+@charset "UTF-8";
+.chat-list-box {
+  width: auto;
+  background: #F7F7F8;
+  display: flex;
+  align-content: start;
+  justify-content: start;
+  flex-direction: column;
+  overflow: auto;
+}
+.chat-list-box .chat-list-element {
+  content: " ";
+  border-bottom: 1px solid #999;
+  width: 95%;
+  margin: auto;
+}
+.chat-list-box .chat-list-element:nth-child(n+10):last-child {
+  border-bottom: none;
+}
+.chat-list-box .chat-list-element .room-box {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  width: 100%;
+  height: 70px;
+  cursor: pointer;
+}
+.chat-list-box .chat-list-element .room-box .room-box-content {
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+.chat-list-box .chat-list-element .room-box .room-box-content .room-avatar {
+  width: 50px;
+  margin-right: 5px;
+}
+.chat-list-box .chat-list-element .room-box .room-box-content .room-chat-info {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+}
+.chat-list-box .chat-list-element .room-box .room-box-content .room-chat-info .chatName {
+  font-weight: bold;
+  font-size: 13px;
+  color: #1E1E1E;
+}
+.chat-list-box .chat-list-element .room-box .room-box-content .room-chat-info .userMsg {
+  font-weight: 500;
+  color: #1E1E1E;
+}
+.chat-list-box .chat-list-element .room-box .room-box-content .room-chat-info .lastMsg {
+  color: #999;
+}
+.chat-list-box .chat-list-element .room-box .room-adds-box {
+  margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+}
+.chat-list-box .chat-list-element .room-box .room-adds-box .dateMsg {
+  margin-bottom: auto;
+  align-items: start;
+  font-size: 9px;
+}
+.chat-list-box .chat-list-element .room-box .room-adds-box .newMsg {
+  margin-bottom: 5px;
+  font-size: 10px;
+  background: #1A6CF1;
+  color: #ffffff;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-list-box .chat-list-element .room-box .room-adds-box .footer-chat-options {
+  position: relative;
+  width: 30px;
+  height: 70px;
+  color: #1E1E1E;
+  border-radius: 50%;
+}
+.chat-list-box .chat-list-element .room-box .room-adds-box .footer-chat-options:after {
+  content: "•••";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+.selected {
+  background: #E4EDFD;
+  opacity: 50%;
+}
+
+/*# sourceMappingURL=chatRoomFooter.css.map */

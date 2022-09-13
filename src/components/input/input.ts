@@ -2,7 +2,7 @@ import input from './input.hbs';
 import './input.scss';
 import Block from '../../block';
 
-type InputProps = {
+export type InputProps = {
     inputType: string
     inputPlaceholder?: string
     inputName?: string
@@ -10,6 +10,7 @@ type InputProps = {
     inputClass?: string
     inputValue?: string
     inputInvalid?: string
+    autofocus?: string
     events: Record<string, Function>
     attr?: Record<string, string>
 }

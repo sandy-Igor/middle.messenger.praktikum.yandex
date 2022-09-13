@@ -6,19 +6,19 @@
     max-width: 90%;
     border: 1px solid #999;
     border-radius: 8px;
-    overflow: auto;
     background: transparent;
 }
 
-.chat-list-box {
+.chat-items-box {
     background: #F7F7F8;
     border-right: 1px solid #999;
-    max-width: 310px;
+    width: 310px;
     display: flex;
     align-content: start;
     justify-content: start;
     flex-direction: column;
     overflow: auto;
+
 
 }
 
@@ -30,8 +30,10 @@
     width: 100%;
 
     .chat-area-footer {
+        position: relative;
         width: 100%;
         align-items: center;
+        height: 80px;
     }
 
     .chat-area-main {
@@ -42,6 +44,7 @@
         width: 90%;
         padding: 20px;
         flex-direction: column;
+        overflow: hidden;
 
         .message-date {
             margin: 10px auto;

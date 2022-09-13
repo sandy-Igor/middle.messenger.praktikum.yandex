@@ -1,0 +1,46 @@
+.chat-operate-box {
+    margin: 15px;
+    right: 5%;
+    position: absolute;
+    background: #F7F7F8;
+    border: 1px solid #999;
+    border-radius: 10px;
+    display: none;
+    user-select: none;
+    z-index: 1;
+
+    .chat-operation-elem {
+        margin: 15px;
+        padding-bottom: 10px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        cursor: pointer;
+        border: none;
+        border-bottom: 1px solid #999;
+
+        &:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .operation-image {
+            width: 22px;
+            height: 22px;
+            margin-right: 10px;
+        }
+
+        .rotation {
+            transform: rotate(45deg);
+        }
+
+        .operation-value {
+
+        }
+    }
+
+}
+
+.display {
+    display: block;
+}

@@ -19,6 +19,10 @@ export default class InputSearch extends Block<InputSearchProps> {
             .forEach(inp => {
                 inp.addEventListener('input', this.props.events.input);
             });
+        this.element.querySelectorAll('span')
+            .forEach(spn => {
+                spn.addEventListener('click', this.props.events.click)
+            })
     }
 
     addAttribute() {

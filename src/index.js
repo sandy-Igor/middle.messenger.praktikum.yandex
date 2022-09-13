@@ -7,37 +7,15 @@ import changeProfilePage from './pages/changeProfile/index.ts';
 import profilePage from './pages/profile/index.ts';
 import changePassPage from './pages/changePassword/index.ts';
 import chatPage from './pages/chat/index.ts';
-import { render } from './utils/renderDOM.ts';
+import { router } from './router/router';
 
-let content = authPage;
-
-window.addEventListener('load', () => {
-    const path = window.location.pathname;
-    switch (path) {
-        case '/register':
-            content = registerPage;
-            break;
-        case '/pnf':
-            content = pageNotFound;
-            break;
-        case '/pse':
-            content = pageServerError;
-            break;
-        case '/changeProfilePage':
-            content = changeProfilePage;
-            break;
-        case '/profilePage':
-            content = profilePage;
-            break;
-        case '/changePassPage':
-            content = changePassPage;
-            break;
-        case '/chatPage':
-            content = chatPage;
-            break;
-        default:
-            content = authPage;
-            break;
-    }
-    return render('.app', content);
-});
+router
+    .use('/', authPage)
+    .use('/register', registerPage)
+    .use('/pnf', pageNotFound)
+    .use('/pse', pageServerError)
+    .use('/changeProfilePage', changeProfilePage)
+    .use('/profilePage', profilePage)
+    .use('/changePassPage', changePassPage)
+    .use('/chatPage', chatPage)
+    .start()

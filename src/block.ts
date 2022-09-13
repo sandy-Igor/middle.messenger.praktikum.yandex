@@ -20,13 +20,13 @@ export default class Block<T> {
 
     public element: HTMLElement;
     public props: Props;
+    public children: Children;
     private readonly _id: string | null = null;
-    private readonly children: Children;
     private readonly eventBus: EventBus;
     private readonly tagName: string;
     private _setUpdate = false;
 
-    constructor(tagName: string = 'div', propsAndChildren: T) {
+    constructor(tagName: string = 'div', propsAndChildren: T ) {
         const {
             children,
             props
@@ -106,15 +106,10 @@ export default class Block<T> {
     }
 
     private _componentDidMount(): void {
-        this.componentDidMount();
 
         Object.values(this.children).forEach(child => {
                 child.dispatchComponentDidMount();
             });
-    }
-
-    public componentDidMount(): void {
-
     }
 
     public dispatchComponentDidMount(): void {
@@ -157,7 +152,7 @@ export default class Block<T> {
             });
     }
 
-    public setProps = (nextProps: T) => {
+    public setProps (nextProps: T) {
         if (!nextProps) {
             return;
         }
@@ -169,7 +164,6 @@ export default class Block<T> {
             children,
             props
         } = this._getChildren(nextProps) as Record<string, any>;
-
         if (Object.values(children).length > 0) {
             Object.assign(this.children, children);
         }
@@ -202,6 +196,7 @@ export default class Block<T> {
     }
 
     private _makePropsProxy(props: Props): Props {
+
         const handler = {
             get: (target: Props, prop: string): unknown => {
                 const value = target[prop];
@@ -225,6 +220,14 @@ export default class Block<T> {
 
     private _createDocumentElement(tagName: string): HTMLElement {
         return document.createElement(tagName);
+    }
+
+    public show() {
+        this.getContent().style.display = 'block';
+    }
+
+    public hide() {
+        this.getContent().style.display = 'none';
     }
 }
 

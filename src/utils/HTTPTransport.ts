@@ -5,11 +5,11 @@ enum Methods {
     DELETE = 'DELETE',
 }
 
-interface Options {
+export interface Options {
     timeout?: number;
     method?: Methods;
     headers?: Record<string, string>;
-    data: Object;
+    data?: Object;
 }
 
 function queryStringify(data: Record<string, any>) {
@@ -21,35 +21,36 @@ function queryStringify(data: Record<string, any>) {
 }
 
 export default class HTTPTransport {
-    get = async (url: string, options: Options) => {
+
+    get = async (url: string, options: Options = {}) => {
         return await this.request(url, {
             ...options,
             method: Methods.GET
         }, options.timeout);
     };
 
-    post = async (url: string, options: Options) => {
+    post = async (url: string, options: Options = {}) => {
         return await this.request(url, {
             ...options,
             method: Methods.POST
         }, options.timeout);
     };
 
-    put = async (url: string, options: Options) => {
+    put = async (url: string, options: Options = {}) => {
         return await this.request(url, {
             ...options,
             method: Methods.PUT
         }, options.timeout);
     };
 
-    delete = async (url: string, options: Options) => {
+    delete = async (url: string, options: Options = {}) => {
         return await this.request(url, {
             ...options,
             method: Methods.DELETE
         }, options.timeout);
     };
 
-    request = async (url: string, options: Options, timeout = 5000) => {
+    request = async (url: string, options: Options = {method: Methods.GET}, timeout = 5000) => {
         const {
             headers = {},
             method,
@@ -71,7 +72,7 @@ export default class HTTPTransport {
                     ? `${url}${queryStringify(data)}`
                     : url
             );
-
+            xhr.withCredentials = true;
             Object.keys(headers)
                 .forEach(key => {
                     xhr.setRequestHeader(key, headers[key]);
@@ -86,11 +87,12 @@ export default class HTTPTransport {
 
             xhr.timeout = timeout;
             xhr.ontimeout = reject;
-
             if (isGet || !data) {
                 xhr.send();
+            } else if (data instanceof FormData) {
+                xhr.send(data);
             } else {
-                xhr.send(data as string);
+                xhr.send(JSON.stringify(data));
             }
         });
     };
