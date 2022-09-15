@@ -1,5 +1,5 @@
 import Block from '../../block';
-import profileTpl from '../../components/profileTpl/profileTpl.hbs';
+import profileTpl from '../../components/profileTpl/profileTpl.tpl';
 
 type ChangePasswordProps = Record<string, any>
 export default class ChangePassword extends Block<ChangePasswordProps> {

@@ -1,10 +1,10 @@
-import avatar from '../../static/images/avatar-chat.png';
+import * as avatar from '../static/avatar-chat.png';
 import { ChatApi, ChatId, ChatName, UserSearch, UserToChat } from '../api/chat-api';
 import Socket from '../api/WebSocket';
 import store from '../store/Store';
 import { parseDate } from '../utils/parseDate';
 import { ChatPropsInArray } from '../components/chatRoomItem/chatRoomItem';
-import { cutString } from '../utils/triggerToCutStrind';
+import { cutString } from '../utils/cutString';
 
 const chatApi = new ChatApi();
 

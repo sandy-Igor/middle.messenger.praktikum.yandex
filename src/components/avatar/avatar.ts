@@ -1,6 +1,6 @@
 import Block from '../../block';
 import './avatar.scss';
-import avatar from './avatar.hbs';
+import avatar from './avatar.tpl';
 import store, { StoreEvents } from '../../store/Store';
 
 type AvatarProps = {

@@ -1,0 +1,51 @@
+.button-ready {
+  margin: 10px 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  font: 1.125rem/1.3125rem Roboto Regular, sans-serif;
+  cursor: pointer;
+  background: #1A6CF1;
+  border: none;
+  color: #ffffff;
+}
+.button-ready:hover {
+  opacity: 80%;
+  transition: 0.3s;
+}
+
+.button-scd {
+  margin: 10px 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  font: 1.125rem/1.3125rem Roboto Regular, sans-serif;
+  cursor: pointer;
+  background: transparent;
+  border: #ffffff;
+  color: #363B4B;
+}
+.button-scd:hover {
+  opacity: 80%;
+  transition: 0.3s;
+}
+
+.button-save {
+  margin: 10px 0;
+  border-radius: 8px;
+  width: 100%;
+  height: 40px;
+  font: 1.125rem/1.3125rem Roboto Regular, sans-serif;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 8px;
+  background: #1A6CF1;
+  border: none;
+  color: #ffffff;
+}
+.button-save:hover {
+  opacity: 80%;
+  transition: 0.3s;
+}
+
+/*# sourceMappingURL=button.css.map */

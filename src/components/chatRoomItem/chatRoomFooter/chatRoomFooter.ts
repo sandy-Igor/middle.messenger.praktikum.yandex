@@ -1,4 +1,4 @@
-import chatRoom from './chatRoomFooter.hbs';
+import chatRoom from './chatRoomFooter.tpl';
 import '../chatRoomItem.scss';
 import Block from '../../../block';
 

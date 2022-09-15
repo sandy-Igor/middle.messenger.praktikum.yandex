@@ -1,7 +1,7 @@
 import { AuthApi } from '../api/auth-api';
 import store from '../store/Store';
 import { ChangeAvatar, ChangePass, ChangeUser, UserApi } from '../api/user-api';
-import avatarImage from '../../static/images/avatar-png-icon.png';
+import avatarImage from '../static/avatar-png-icon.png';
 import { router } from '../router/router';
 
 const user = new AuthApi();

@@ -6,7 +6,7 @@ import { router } from '../../router/router';
 import { Signup } from '../../api/auth-api';
 import AuthController from '../../controllers/authController';
 import UserController from '../../controllers/userController';
-import ChatController from '../../controllers/chatController'
+import ChatController from '../../controllers/chatController';
 
 const goButton = new Button(
     'div',
@@ -27,8 +27,8 @@ const altBtn = new Button(
         btnValue: 'Have an account? Sign in!',
         events: {
             click: (e: Event) => {
-                e.preventDefault()
-                router.go('/')
+                e.preventDefault();
+                router.go('/');
             }
         }
     });
@@ -159,12 +159,11 @@ const data = {
                 })
                 .then(() => {
                     ChatController.getChats();
-                })
+                });
         }
     }
 };
 
 const register = new RegisterPage(data);
-
 export default register;
 

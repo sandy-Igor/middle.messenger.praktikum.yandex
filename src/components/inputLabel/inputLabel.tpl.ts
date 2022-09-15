@@ -1,4 +1,4 @@
-<div class="label-input-section">
+export default `<div class="label-input-section">
     {{#if label}}
         <label>{{label}}</label>
     {{/if}}
@@ -13,5 +13,5 @@
     />
 </div>
 <span class="input-invalid">{{inputInvalid}}</span>
-
+`
 

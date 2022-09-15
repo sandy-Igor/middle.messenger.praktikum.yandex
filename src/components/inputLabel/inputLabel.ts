@@ -1,4 +1,4 @@
-import labelInput from './inputLabel.hbs';
+import labelInput from './inputLabel.tpl';
 import './inputLabel.scss';
 import Block from '../../block';
 

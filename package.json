@@ -1,65 +1,63 @@
 {
-  "name": "practicum",
+  "name": "yandex-chat-project",
   "version": "1.0.0",
-  "description": "chat",
-  "dependencies": {
-    "@types/chai": "^4.3.3",
-    "express": "^4.18.1",
-    "handlebars": "^4.7.7",
-    "parcel": "2.6.2",
-    "stylelint-scss": "4.3.0"
-  },
-  "engines": {
-    "node": ">=12.0.0"
-  },
-  "targets": {
-    "default": {
-      "engines": {
-        "browsers": ">= 50%"
-      }
-    }
-  },
-  "devDependencies": {
-    "@babel/register": "^7.18.9",
-    "@parcel/transformer-sass": "2.6.2",
-    "@types/jsdom": "^20.0.0",
-    "@types/mocha": "^9.1.1",
-    "@types/uuid": "8.3.4",
-    "@typescript-eslint/eslint-plugin": "^5.33.0",
-    "@typescript-eslint/parser": "^5.33.0",
-    "assert": "^2.0.0",
-    "chai": "^4.3.6",
-    "concurrently": "^7.2.2",
-    "console-browserify": "^1.2.0",
-    "css-loader": "6.7.1",
-    "eslint": "^8.22.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.26.0",
-    "jsdom": "^20.0.0",
-    "mocha": "^10.0.0",
-    "parcel-transformer-hbs": "1.0.4",
-    "process": "^0.11.10",
-    "stylelint": "14.10.0",
-    "ts-node": "10.9.1",
-    "typescript": "^4.7.4",
-    "util": "^0.12.4",
-    "uuid": "8.3.2"
+  "description": "yandex-chat-project",
+  "private": true,
+  "directories": {
+    "test": "test"
   },
   "scripts": {
-    "test": "mocha",
-    "build": "parcel build --target default src/index.html",
-    "dev": "parcel --target default src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --node-env=production",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch",
+    "serve": "webpack serve",
     "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.0.2",
+    "@types/mocha": "^9.1.1",
+    "@types/uuid": "^8.3.4",
+    "@webpack-cli/generators": "^2.5.0",
+    "ajv": "^7.2.4",
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "sass": "^1.54.9",
+    "sass-loader": "^13.0.2",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.8.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.0"
+  },
+  "dependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/jsdom": "^20.0.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "express": "^4.18.1",
+    "handlebars": "^4.7.7",
+    "handlebars-loader": "^1.7.2",
+    "jsdom": "^20.0.0",
+    "mocha": "^10.0.0",
+    "stylelint": "^14.11.0",
+    "stylelint-scss": "^4.3.0",
+    "uuid": "^9.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sandy-Igor/practicum.git"
+    "url": "git+https://github.com/sandy-Igor/middle.messenger.praktikum.yandex.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sandy-Igor/practicum/issues"
+    "url": "https://github.com/sandy-Igor/middle.messenger.praktikum.yandex/issues"
   },
-  "homepage": "https://github.com/sandy-Igor/practicum#readme",
-  "keywords": []
+  "homepage": "https://github.com/sandy-Igor/middle.messenger.praktikum.yandex#readme"
 }

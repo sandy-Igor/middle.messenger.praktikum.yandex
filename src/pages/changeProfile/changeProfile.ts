@@ -1,4 +1,4 @@
-import profileTpl from '../../components/profileTpl/profileTpl.hbs';
+import profileTpl from '../../components/profileTpl/profileTpl.tpl';
 import '../../components/profileTpl/profileTpl.scss';
 import Block from '../../block';
 import Connect from '../../store/Connect';
@@ -7,7 +7,7 @@ import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import { router } from '../../router/router';
 import Avatar from '../../components/avatar/avatar';
-import avatarImage from '../../../static/images/avatar-png-icon.png';
+import * as avatarImage from '../../static/avatar-png-icon.png';
 import UserController from '../../controllers/userController';
 import Button from '../../components/button/button';
 import { ChangeUser } from '../../api/user-api';

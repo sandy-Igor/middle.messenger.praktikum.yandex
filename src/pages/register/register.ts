@@ -1,5 +1,5 @@
 import Block, { Props } from '../../block';
-import register from '../../components/authRegForm/authReg.hbs';
+import register from '../../components/authRegForm/authReg.tpl';
 import '../../components/authRegForm/authReg.scss';
 
 type RegisterPageProps = Record<string, any>

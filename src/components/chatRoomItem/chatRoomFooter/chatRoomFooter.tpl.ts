@@ -1,4 +1,4 @@
-{{#each chat}}
+export default `{{#each chat}}
     <li class="chat-list-element">
         <div class="room-box">
             <div class="room-box-content">
@@ -16,5 +16,5 @@
             </div>
         </div>
     </li>
-{{/each}}
+{{/each}}`
 

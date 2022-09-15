@@ -1,5 +1,5 @@
 import Block from '../../block';
-import auth from '../../components/authRegForm/authReg.hbs';
+import auth from '../../components/authRegForm/authReg.tpl';
 import '../../components/authRegForm/authReg.scss';
 
 export type AuthPageProps = Record<string, any>

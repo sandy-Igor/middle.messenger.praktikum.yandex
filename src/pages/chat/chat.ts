@@ -1,9 +1,9 @@
-import clip from '../../../static/images/clip.png';
-import chat from './chat.hbs';
+import * as clip from '../../static/clip.png';
+import chat from './chat.tpl';
 import Block from '../../block';
 import './chat.scss';
 import ChatRoomItem from '../../components/chatRoomItem/chatRoomItem';
-import createChatImage from '../../../static/images/pngegg.png';
+import * as createChatImage from '../../static/pngegg.png';
 import { chatRoomClick } from '../../utils/events';
 import Connect from '../../store/Connect';
 import Input from '../../components/input/input';
@@ -23,7 +23,6 @@ type ChatProps = Record<string, any>
 class ChatPage extends Block<ChatProps> {
     constructor(tagName: string, props: ChatProps = {}) {
         props.clip = clip;
-
         props.inputSearch = new InputSearch(
             'div',
             {
@@ -343,8 +342,9 @@ class ChatPage extends Block<ChatProps> {
             this.props.chats.forEach((chat: { id: number }, index: number) => {
                 ChatController.getNewMessages(chat.id, index);
                 ChatController.getLastMessage(index);
+                ChatController.getChats()
             });
-        }, 15000);
+        }, 10000);
     }
 
     addAttribute() {

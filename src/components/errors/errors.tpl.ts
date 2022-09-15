@@ -1,4 +1,4 @@
-<div class="error-container">
+export default `<div class="error-container">
     <div class="error-code">
         {{error}}
     </div>
@@ -8,5 +8,5 @@
     <div class="button-return">
         <a href="#">back</a>
     </div>
-</div>
+</div>`
 

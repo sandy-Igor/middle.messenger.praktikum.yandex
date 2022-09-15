@@ -1,4 +1,4 @@
-<div class="chat-page-box">
+export default `<div class="chat-page-box">
 
     <div class="chat-items-box">
         {{{inputSearch}}}
@@ -23,7 +23,7 @@
                 {{{messageArea}}}
                 {{{arrowButton}}}
             </form>
-
         </div>
     </div>
 </div>
+`

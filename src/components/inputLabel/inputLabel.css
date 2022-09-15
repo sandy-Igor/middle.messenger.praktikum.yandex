@@ -1,0 +1,39 @@
+.inputLabel-wrapper {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 15px;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: end;
+}
+.inputLabel-wrapper .label-input-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.inputLabel-wrapper .label-input-section input {
+  width: 50%;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  height: 2rem;
+  outline: none;
+  text-align: right;
+  border-bottom: 0.0625rem solid #77b8f9;
+}
+.inputLabel-wrapper .label-input-section label {
+  width: 50%;
+  display: flex;
+  border-bottom: 0.0625rem solid #77b8f9;
+}
+.inputLabel-wrapper span {
+  height: 10px;
+  color: #bb2022;
+  background: transparent;
+  text-align: right;
+}
+
+/*# sourceMappingURL=inputLabel.css.map */

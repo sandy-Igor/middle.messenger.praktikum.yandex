@@ -9,6 +9,7 @@
     "sourceMap": true,
     "strictNullChecks": true,
     "noUnusedParameters": true
-  }
+  },
+  "include": ["index.dt.ts"],
+  "files": ["src/index.ts"]
 }
-

@@ -1,6 +1,6 @@
-import avatarImage from '../../../static/images/avatar-png-icon.png';
+import * as avatarImage from '../../static/avatar-png-icon.png';
 import Block from '../../block';
-import profileTpl from '../../components/profileTpl/profileTpl.hbs';
+import profileTpl from '../../components/profileTpl/profileTpl.tpl';
 import ArrowButton from '../../components/arrowButton/arrowButton';
 import Avatar from '../../components/avatar/avatar';
 import InputLabel from '../../components/inputLabel/inputLabel';

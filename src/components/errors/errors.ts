@@ -1,10 +1,11 @@
 import Block from '../../block';
-import error from './errors.hbs';
+import error from './errors.tpl';
 
-type ErrorProps = {
+type ErrorProps =
+    {
     error: string
     description: string
-    events?: {}
+    events?:  Record<string, any>
 }
 
 export default class Errors extends Block<ErrorProps> {

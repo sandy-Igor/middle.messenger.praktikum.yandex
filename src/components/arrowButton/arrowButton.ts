@@ -1,4 +1,4 @@
-import arrow from './arrowButton.hbs';
+import arrow from './arrowButton.tpl';
 import './arrowButton.scss';
 import Block from '../../block';
 
