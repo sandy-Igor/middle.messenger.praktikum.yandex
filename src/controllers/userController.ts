@@ -1,7 +1,7 @@
 import { AuthApi } from '../api/auth-api';
 import store from '../store/Store';
 import { ChangeAvatar, ChangePass, ChangeUser, UserApi } from '../api/user-api';
-import avatarImage from '../static/avatar-png-icon.png';
+import * as avatarImage from '../static/avatar-png-icon.png';
 import { router } from '../router/router';
 
 const user = new AuthApi();
@@ -55,9 +55,12 @@ class UserController {
                 return r as XMLHttpRequest;
             })
             .then(data => {
+                console.log(data);
                 return JSON.parse(data.response as string);
             })
-            .then(data => store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`));
+            .then(data => {
+                store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`)
+            });
     }
 
     public changePassword (data: ChangePass) {

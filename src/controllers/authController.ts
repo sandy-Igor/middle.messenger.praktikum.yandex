@@ -1,4 +1,3 @@
-
 import { AuthApi, Signin, Signup } from '../api/auth-api';
 import { router } from '../router/router';
 

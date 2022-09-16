@@ -8,7 +8,7 @@ class BlockTest extends Block<{ name: string }> {
     }
 
     render() {
-        return this.compile(() => '<div>{{name}}</div>', {
+        return this.compile('<div>{{name}}</div>', {
             name: this.props.name,
         });
     }

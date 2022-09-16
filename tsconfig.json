@@ -8,7 +8,8 @@
     "noUnusedLocals": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "skipLibCheck": true
   },
   "include": ["index.dt.ts"],
   "files": ["src/index.ts"]

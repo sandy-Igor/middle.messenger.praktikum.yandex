@@ -1,4 +1,3 @@
-import * as avatarImage from '../../static/avatar-png-icon.png';
 import Block from '../../block';
 import profileTpl from '../../components/profileTpl/profileTpl.tpl';
 import ArrowButton from '../../components/arrowButton/arrowButton';
@@ -29,7 +28,6 @@ class Profile extends Block<ProfileProps> {
         props.avatar = new Avatar(
             'label',
             {
-                srcAvatar: avatarImage,
                 disabled: 'disabled',
                 events: {}
             }
@@ -153,7 +151,7 @@ class Profile extends Block<ProfileProps> {
         );
 
         super(tagName, props);
-        // this.initChilds();
+        this.initChilds();
     }
 
     setProps(nextProps: ProfileProps) {
