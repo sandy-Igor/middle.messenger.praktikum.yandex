@@ -1,15 +1,9 @@
-# 🚀 Welcome to your new awesome project!
+chat_sprint_4
 
-This project has been created using **webpack-cli**, you can now run
+"npm run build" to build 
+"npm run start" for node server.js 
+"npm run test" to start tests
 
-```
-npm run build
-```
+Heroku: yandex-messanger-test.herokuapp.com
 
-or
-
-```
-yarn build
-```
-
-to bundle your application
+Figma: https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1
