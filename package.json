@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "yandex-chat-project",
   "private": true,
+  "mail": "index.ts",
   "directories": {
     "test": "test"
   },

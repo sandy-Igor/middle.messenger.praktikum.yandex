@@ -50,16 +50,17 @@ class UserController {
 
     public changeAvatar(data: HTMLFormElement) {
         const formData = new FormData(data);
+        console.log(formData);
         return userApi.changeAvatar(formData as unknown as ChangeAvatar)
             .then(r => {
                 return r as XMLHttpRequest;
             })
             .then(data => {
-                console.log(data);
                 return JSON.parse(data.response as string);
             })
             .then(data => {
                 store.set('user.avatar', `https://ya-praktikum.tech/api/v2/resources${data.avatar}`)
+                return
             });
     }
 

@@ -18,6 +18,9 @@ const config = {
         host: 'localhost',
         port: 3000,
         historyApiFallback: true,
+        static: {
+            directory: path.join(__dirname, 'static')
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({

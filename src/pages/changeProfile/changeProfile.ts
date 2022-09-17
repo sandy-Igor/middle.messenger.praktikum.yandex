@@ -37,7 +37,7 @@ class ChangeProfile extends Block<ChangeProfileProps> {
                     submit: (e: Event) => {
                         e.preventDefault();
                         const form = this.element.querySelector('form');
-                        UserController.changeAvatar(form as HTMLFormElement);
+                        UserController.changeAvatar(form as HTMLFormElement)
                     },
                     change: () => {
                         (this.element.querySelector('input[type=submit]') as HTMLElement).click();

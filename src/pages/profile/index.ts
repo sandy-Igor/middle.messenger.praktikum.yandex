@@ -1,6 +1,5 @@
 import Profile from './profile';
-
-const profilePage = new Profile({});
+const profilePage = new Profile();
 
 export default profilePage
 
