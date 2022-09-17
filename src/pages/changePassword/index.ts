@@ -95,7 +95,6 @@ const data = {
         submit: (e: Event) => {
             const formData = formSubmitEvent(e, data);
             if(formData) {
-                console.log('after valid');
                 UserController.changePassword(formData as ChangePass);
             }
         }

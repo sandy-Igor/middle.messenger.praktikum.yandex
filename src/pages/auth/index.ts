@@ -66,7 +66,6 @@ const data = {
   events: {
     submit: (e: Event) => {
       const formData = formSubmitEvent(e, data);
-      console.log(formData);
       if (formData) {
         AuthController.singin(formData as Signin)
           .then(() => {

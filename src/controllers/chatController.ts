@@ -73,7 +73,6 @@ class ChatController {
     public addUserToChat(addUserToChat: UserToChat) {
         return chatApi.addUserToChat(addUserToChat)
             .then((data: XMLHttpRequest) => {
-                console.log(data);
                 return data.response;
             })
             .then((data) => {

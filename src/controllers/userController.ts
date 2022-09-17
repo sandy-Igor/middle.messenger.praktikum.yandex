@@ -50,7 +50,6 @@ class UserController {
 
     public changeAvatar(data: HTMLFormElement) {
         const formData = new FormData(data);
-        console.log(formData);
         return userApi.changeAvatar(formData as unknown as ChangeAvatar)
             .then(r => {
                 return r as XMLHttpRequest;
