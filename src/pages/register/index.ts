@@ -6,7 +6,6 @@ import { router } from '../../router/router';
 import { Signup } from '../../api/auth-api';
 import AuthController from '../../controllers/authController';
 import UserController from '../../controllers/userController';
-import ChatController from '../../controllers/chatController';
 
 const goButton = new Button(
     'div',
@@ -154,16 +153,10 @@ const data = {
         submit: (e: Event) => {
             const formData = formSubmitEvent(e, data);
             AuthController.signup(formData as Signup)
-                .then(() => {
-                    UserController.getUser();
-                })
-                .then(() => {
-                    ChatController.getChats();
-                });
         }
     }
 };
-
 const register = new RegisterPage(data);
+UserController.getUser();
 export default register;
 
