@@ -6,6 +6,7 @@ type Operation = {
     operationImage: File
     operationDesc: string
     rotation?: string
+    imgDsc?: string
 }
 
 type ChatControlProps = {
