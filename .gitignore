@@ -2,5 +2,6 @@
 /node_modules
 .cache
 **.css.map
-
+.idea
+.parcel-cache
 

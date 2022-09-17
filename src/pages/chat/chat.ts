@@ -70,20 +70,24 @@ class ChatPage extends Block<ChatProps> {
           {
             operationImage: createChatImage,
             operationDesc: 'Create new chat',
+            imgDsc: 'crtchat'
           },
           {
             operationImage: createChatImage,
             operationDesc: 'Delete chat',
             rotation: 'rotation',
+            imgDsc: 'delchat'
           },
           {
             operationImage: createChatImage,
-            operationDesc: 'Add user to chat'
+            operationDesc: 'Add user to chat',
+            imgDsc: 'addusr'
           },
           {
             operationImage: createChatImage,
             operationDesc: 'Delete user from chat',
             rotation: 'rotation',
+            imgDsc: 'delusr'
           }
         ],
         events: {
