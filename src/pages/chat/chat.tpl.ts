@@ -14,7 +14,9 @@ export default `<div class="chat-page-box">
             {{{deleteUser}}}
         </div>
         <div class="chat-area-main">
-            <time datetime="2021-11-18T09:54" class="message-date"><span>{{firstMessageDate}}</span></time>
+            <time datetime="2021-11-18T09:54" class="message-date">
+                <span>{{firstMessageDate}}</span>
+            </time>
             {{{messages}}}
         </div>
         <div class="chat-msg-bottom">
@@ -26,4 +28,4 @@ export default `<div class="chat-page-box">
         </div>
     </div>
 </div>
-`
+`;

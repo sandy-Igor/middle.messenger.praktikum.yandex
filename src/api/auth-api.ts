@@ -18,38 +18,37 @@ export type Signup = {
 }
 
 export class AuthApi extends BaseAPI {
-    private authAPIInstance: HTTPTransport;
+  private authAPIInstance: HTTPTransport;
 
-    constructor() {
-        super();
-        this.authAPIInstance = new HTTPTransport();
-    }
+  constructor() {
+    super();
+    this.authAPIInstance = new HTTPTransport();
+  }
 
-    signup(data: Signup) {
-        return this.authAPIInstance.post(`${HOST}api/v2/auth/signup`, {
-            data,
-            headers: {
-                'content-type': 'application/json',
+  signup(data: Signup) {
+    return this.authAPIInstance.post(`${HOST}api/v2/auth/signup`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
 
-            },
-        });
-    }
+      },
+    });
+  }
 
-    signin(data: Signin) {
-        return this.authAPIInstance.post(`${HOST}api/v2/auth/signin`, {
-            data,
-            headers: {
-                'content-type': 'application/json',
-            },
-        });
-    }
+  signin(data: Signin) {
+    return this.authAPIInstance.post(`${HOST}api/v2/auth/signin`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
 
-    getUser() {
-        return this.authAPIInstance.get(`${HOST}api/v2/auth/user`)
-    }
+  getUser() {
+    return this.authAPIInstance.get(`${HOST}api/v2/auth/user`);
+  }
 
-    logout() {
-        return this.authAPIInstance.post(`${HOST}api/v2/auth/logout`);
-    }
-
+  logout() {
+    return this.authAPIInstance.post(`${HOST}api/v2/auth/logout`);
+  }
 }

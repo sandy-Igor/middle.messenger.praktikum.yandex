@@ -20,70 +20,71 @@ export type UserSearch = {
 }
 
 export class ChatApi extends BaseAPI {
-    private chatAPIInstance: HTTPTransport;
-    constructor() {
-        super();
-        this.chatAPIInstance = new HTTPTransport();
-    }
+  private chatAPIInstance: HTTPTransport;
 
-    getChats() {
-        return this.chatAPIInstance.get(`${HOST}api/v2/chats`)
-    }
+  constructor() {
+    super();
+    this.chatAPIInstance = new HTTPTransport();
+  }
 
-    createChat(data: ChatName) {
-        return this.chatAPIInstance.post(`${HOST}api/v2/chats`, {
-            data,
-            headers: {
-                'content-type': 'application/json',
-            },
-        })
-    }
+  getChats() {
+    return this.chatAPIInstance.get(`${HOST}api/v2/chats`);
+  }
 
-    deleteChat(data: ChatId) {
-        return this.chatAPIInstance.delete(`${HOST}api/v2/chats`, {
-        data,
-        headers: {
-            'content-type': 'application/json',
-        },
-    })
-    }
+  createChat(data: ChatName) {
+    return this.chatAPIInstance.post(`${HOST}api/v2/chats`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
 
-    addUserToChat(data: UserToChat) {
-        return this.chatAPIInstance.put(`${HOST}api/v2/chats/users`, {
-            data,
-            headers: {
-                'content-type': 'application/json',
-            },
-        })
-    }
+  deleteChat(data: ChatId) {
+    return this.chatAPIInstance.delete(`${HOST}api/v2/chats`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
 
-    getUserByLogin(data: UserSearch) {
-        return this.chatAPIInstance.post(`${HOST}api/v2/user/search`, {
-            data,
-            headers: {
-                'content-type': 'application/json',
-            },
-        })
-    }
+  addUserToChat(data: UserToChat) {
+    return this.chatAPIInstance.put(`${HOST}api/v2/chats/users`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
 
-    getUsersInChat (data: number) {
-        return this.chatAPIInstance.get(`${HOST}api/v2/chats/${data}/users`)
-    }
+  getUserByLogin(data: UserSearch) {
+    return this.chatAPIInstance.post(`${HOST}api/v2/user/search`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
 
-    deleteUserFromChat (data: UserToChat) {
-        return this.chatAPIInstance.delete(`${HOST}api/v2/chats/users`, {
-            data,
-            headers: {
-                'content-type': 'application/json',
-            },
-        })
-    }
+  getUsersInChat(data: number) {
+    return this.chatAPIInstance.get(`${HOST}api/v2/chats/${data}/users`);
+  }
 
-    getNewMessages (id: number) {
-        return this.chatAPIInstance.get(`${HOST}api/v2/chats/new/${id}`)
-    }
+  deleteUserFromChat(data: UserToChat) {
+    return this.chatAPIInstance.delete(`${HOST}api/v2/chats/users`, {
+      data,
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
 
-    getChatToken(id: number) {
-        return this.chatAPIInstance.post(`${HOST}api/v2/chats/token/${id}`)
-    }
+  getNewMessages(id: number) {
+    return this.chatAPIInstance.get(`${HOST}api/v2/chats/new/${id}`);
+  }
+
+  getChatToken(id: number) {
+    return this.chatAPIInstance.post(`${HOST}api/v2/chats/token/${id}`);
+  }
 }
