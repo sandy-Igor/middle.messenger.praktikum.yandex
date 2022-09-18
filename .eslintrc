@@ -1,19 +1,30 @@
 {
-    "extends": "airbnb/base",
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "@typescript-eslint"
-    ],
-    "rules": {
-        "max-len": [2, 100],
-        "max-params": [2, 3],
-        "no-console": "off",
-        "eol-last": 0
-    },
-    "env": {
-        "browser": true,
-        "node": true,
-        "jasmine": true
+  "extends": "airbnb/base",
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
+  },
+  "rules": {
+    "max-len": [2, 100],
+    "max-params": [2, 3],
+    "no-console": "off",
+    "eol-last": 0,
+    "import/extensions": "off",
+    "no-param-reassign": 0,
+    "no-shadow": "off",
+    "no-underscore-dangle": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  }
 }
 
