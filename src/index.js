@@ -10,12 +10,12 @@ import chatPage from './pages/chat/index.ts';
 import { router } from './router/router';
 
 router
-    .use('/', authPage)
-    .use('/register', registerPage)
-    .use('/pnf', pageNotFound)
-    .use('/pse', pageServerError)
-    .use('/changeProfilePage', changeProfilePage)
-    .use('/profilePage', profilePage)
-    .use('/changePassPage', changePassPage)
-    .use('/chatPage', chatPage)
-    .start()
+  .use('/', authPage)
+  .use('/register', registerPage)
+  .use('/pnf', pageNotFound)
+  .use('/pse', pageServerError)
+  .use('/changeProfilePage', changeProfilePage)
+  .use('/profilePage', profilePage)
+  .use('/changePassPage', changePassPage)
+  .use('/chatPage', chatPage)
+  .start();

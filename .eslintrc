@@ -4,10 +4,18 @@
     "plugins": [
         "@typescript-eslint"
     ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
+    },
     "rules": {
         "max-len": [2, 100],
         "max-params": [2, 3],
         "no-console": "off",
+        "import/extensions": "off",
         "eol-last": 0
     },
     "env": {
