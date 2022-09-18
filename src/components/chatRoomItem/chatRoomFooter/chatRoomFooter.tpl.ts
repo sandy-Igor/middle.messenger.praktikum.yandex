@@ -3,7 +3,7 @@ export default `{{#each chat}}
         <div class="room-box">
             <div class="room-box-content">
                 <div class="room-avatar">
-                    <img src="{{avatar}}" alt="#">
+                    <img src="{{avatar}}" alt="avatar">
                 </div>
                 <div class="room-chat-info">
                     <div class="chatName">

@@ -1,8 +1,7 @@
 /dist
 /node_modules
-#.parcel-cache
 .cache
 **.css.map
-#.idea
-
+.idea
+.parcel-cache
 

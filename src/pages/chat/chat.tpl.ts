@@ -20,7 +20,7 @@ export default `<div class="chat-page-box">
             {{{messages}}}
         </div>
         <div class="chat-msg-bottom">
-            <img src="{{clip}}" alt="#">
+            <img src="{{clip}}" alt="clip">
             <form id="messageForm">
                 {{{messageArea}}}
                 {{{arrowButton}}}
