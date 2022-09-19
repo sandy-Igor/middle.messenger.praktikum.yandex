@@ -1,0 +1,33 @@
+.error-container {
+  position: relative;
+  width: 28rem;
+  margin: 20vh auto;
+  background: #F7F7F8;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #999;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.error-container .error-code {
+  margin: 20px auto;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 28px;
+}
+.error-container .error-description {
+  margin: 10px auto 30px auto;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 20px;
+}
+.error-container .button-return {
+  margin: 10px auto 30px auto;
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 15px;
+}
+
+/*# sourceMappingURL=errors.css.map */

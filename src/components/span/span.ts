@@ -1,4 +1,4 @@
-import span from './span.hbs';
+import span from './span.tpl';
 import './span.scss';
 import Block from '../../block';
 

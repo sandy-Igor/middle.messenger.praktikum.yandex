@@ -9,7 +9,6 @@ const validation: (field: HTMLInputElement, props: Props) => boolean | undefined
     if (!name || undefined) return;
     const re: RegExp = /^\s*$/;
     if (re.test(value)) {
-        console.log(props[name]);
         props[name].setProps({
             inputClass: classList + ' error',
             inputValue: value,

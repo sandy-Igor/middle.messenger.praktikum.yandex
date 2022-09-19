@@ -1,0 +1,40 @@
+.input-wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: end;
+}
+.input-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: #F7F7F8;
+  height: 2.5rem;
+  font: 1.125rem/1.3125rem Roboto Regular, sans-serif;
+  padding: 0 10px;
+  border-bottom: 0.0625rem solid #77b8f9;
+}
+.input-wrapper input:focus {
+  outline: none;
+  border-bottom: 0.0625rem solid #77b8f9;
+}
+.input-wrapper input.error {
+  border-bottom: 0.0625rem solid #bb2022;
+}
+.input-wrapper input.error .message {
+  border: none;
+}
+.input-wrapper input.message {
+  border: none;
+}
+.input-wrapper span {
+  height: 10px;
+  color: #bb2022;
+  background: transparent;
+}
+
+/*# sourceMappingURL=input.css.map */

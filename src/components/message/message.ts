@@ -1,4 +1,4 @@
-import message from './message.hbs';
+import message from './message.tpl';
 import './message.scss';
 import Block from '../../block';
 

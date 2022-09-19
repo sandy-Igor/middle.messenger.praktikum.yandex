@@ -1,9 +1,9 @@
-{{#each chat}}
+export default `{{#each chat}}
     <li class="chat-list-element">
         <div class="room-box {{selected}}">
             <div class="room-box-content">
                 <div class="room-avatar">
-                    <img src="{{avatar}}" alt="#">
+                    <img src="{{avatar}}" alt="avatar">
                 </div>
                 <div class="room-chat-info">
                     <div class="chatName">
@@ -31,4 +31,4 @@
         </div>
     </li>
 {{/each}}
-
+`

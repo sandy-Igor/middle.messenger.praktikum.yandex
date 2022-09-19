@@ -1,4 +1,4 @@
-<input
+export default `<input
     class="{{inputClass}}"
     id="id{{inputPlaceholder}}"
     type="{{inputType}}"
@@ -8,5 +8,5 @@
     autofocus="{{autofocus}}"
     value="{{inputValue}}"
 />
-<span class="input-invalid">{{inputInvalid}}</span>
+<span class="input-invalid">{{inputInvalid}}</span>`
 

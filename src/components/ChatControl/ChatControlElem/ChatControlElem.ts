@@ -1,6 +1,6 @@
 import Block from '../../../block';
 import Input from '../../input/input';
-import ChatControlEl from './ChatControlElem.hbs'
+import ChatControlEl from './ChatControlElem.tpl'
 import Button from '../../button/button';
 import './ChatControlElem.scss'
 

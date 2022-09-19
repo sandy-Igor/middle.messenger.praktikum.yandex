@@ -1,4 +1,4 @@
-import inputSearch from './inputSearch.hbs';
+import inputSearch from './inputSearch.tpl';
 import './inputSearch.scss';
 import Block from '../../block';
 

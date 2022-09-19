@@ -1,4 +1,4 @@
-import button from './button.hbs';
+import button from './button.tpl';
 import './button.scss';
 import Block from '../../block';
 

@@ -1,4 +1,4 @@
-<div class="profilePage-box">
+export default `<div class="profilePage-box">
     <div class="box-return">
         {{{arrowButton}}}
     </div>
@@ -37,4 +37,4 @@
             </div>
         </form>
     </div>
-</div>
+</div>`

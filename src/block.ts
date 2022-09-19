@@ -1,10 +1,11 @@
 import EventBus from './event-bus';
 import { v4 as makeUUID } from 'uuid';
+import Handlebars = require('handlebars');
 
 export type Props = Record<string, any>
 type Children = Record<string, Block<Props>>
 
-export default class Block<T> {
+export default class Block<T = Props> {
     private readonly EVENTS: Record<string, string> = {
         INIT: 'init',
         FLOW_CDM: 'flow:component-did-mount',
@@ -49,7 +50,7 @@ export default class Block<T> {
     private _getChildren(propsAndChildren: T): {} {
         const children: Children = {};
         const props: Props = {};
-        Object.entries(propsAndChildren)
+        Object.entries((propsAndChildren as Children | Props))
             .forEach(([key, value]) => {
                 if (value instanceof Block) {
                     children[key] = value;
@@ -63,7 +64,7 @@ export default class Block<T> {
         };
     }
 
-    public compile(template: Function, props: any) {
+    public compile(template: string, props: any) {
         if (typeof (props) === 'undefined') {
             props = this.props;
         }
@@ -76,7 +77,7 @@ export default class Block<T> {
             });
 
         const fragment = this._createDocumentElement('template') as HTMLTemplateElement;
-        fragment.innerHTML = template(propsAndStubs);
+        fragment.innerHTML = Handlebars.compile(template)(propsAndStubs);
 
         Object.values(this.children)
             .forEach(child => {

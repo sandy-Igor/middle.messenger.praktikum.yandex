@@ -1,4 +1,4 @@
-<span class="cross-elem"></span>
+export default `<span class="cross-elem"></span>
 <div class="control-code">
     {{description}}
 </div>
@@ -14,5 +14,5 @@
     {{/if}}
 </div>
 {{{sendReq}}}
-
+`
 

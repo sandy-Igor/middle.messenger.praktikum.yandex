@@ -3,9 +3,9 @@ import { render } from '../utils/renderDOM';
 
 export default class Route {
     private _pathname: string;
-    private readonly _block: InstanceType<typeof Block>;
+    private readonly _block: Block;
     private _props: Props;
-    constructor(pathname: string, view: InstanceType<typeof Block>, props: Props) {
+    constructor(pathname: string, view: Block, props: Props) {
         this._pathname = pathname;
         this._block = view;
         this._props = props;

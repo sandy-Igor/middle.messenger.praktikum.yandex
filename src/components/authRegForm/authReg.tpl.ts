@@ -1,4 +1,4 @@
-<div class="box">
+export default `<div class="box">
     <div class="content-box">
         <div class="footer-title">
             <span>{{footerTitle}}</span>
@@ -25,5 +25,5 @@
             </form>
         </div>
     </div>
-</div>
+</div>`
 

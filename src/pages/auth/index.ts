@@ -1,9 +1,9 @@
 import AuthPage from './auth';
 import Button from '../../components/button/button';
 import Input from '../../components/input/input';
-import { formSubmitEvent, inputBlur, inputFocus } from '../../utils/events';
-import { router } from '../../router/router';
-import { Signin } from '../../api/auth-api';
+import {formSubmitEvent, inputBlur, inputFocus} from '../../utils/events';
+import {router} from '../../router/router';
+import {Signin} from '../../api/auth-api';
 import UserController from '../../controllers/userController';
 import AuthController from '../../controllers/authController';
 import ChatController from '../../controllers/chatController';
@@ -66,13 +66,12 @@ const data = {
     events: {
         submit: (e: Event) => {
             const formData = formSubmitEvent(e, data);
-            console.log(formData);
             if (formData) {
-            AuthController.singin(formData as Signin)
-                .then(() => {
-                    UserController.getUser();
-                    ChatController.getChats();
-                });
+                AuthController.singin(formData as Signin)
+                    .then(() => {
+                        UserController.getUser();
+                        ChatController.getChats();
+                    });
             }
         }
     }

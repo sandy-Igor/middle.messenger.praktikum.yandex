@@ -1,4 +1,4 @@
-import input from './input.hbs';
+import input from './input.tpl';
 import './input.scss';
 import Block from '../../block';
 

@@ -1,11 +1,12 @@
 import Block from '../../../block';
-import chatControl from './ChatControl.hbs';
+import chatControl from './ChatControl.tpl';
 import './ChatControl.scss';
 
 type Operation = {
     operationImage: File
     operationDesc: string
     rotation?: string
+    imgDsc?: string
 }
 
 type ChatControlProps = {
